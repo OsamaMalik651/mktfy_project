@@ -1,0 +1,37 @@
+import React, { useState } from "react";
+import logo from "../../assets/logo.svg";
+import Button from "../../components/Button/Button";
+// import Modal from "../components/Modal/Modal";
+import "./Login.css";
+
+const Login = () => {
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const changeLoginModalState = () => {
+        setShowLoginModal(true);
+    };
+
+    return (
+        <div className="login">
+            <div className="login__container">
+                <div className="logo">
+                    <img src={logo} alt="market for you logo" />
+                </div>
+                <div className="buttons">
+                    <Button color="#FFBA00" onClick={changeLoginModalState}>
+                        Login
+                    </Button>
+                    <Button color="#6318AF"> Create Account </Button>
+                </div>
+            </div>
+            {/* {showLoginModal && <Modal close={() => setShowLoginModal(false)} />} */}
+            <div className="footer__text">
+                <p>
+                    Find out more about us!
+                    <a href="#"> Visit our website</a>
+                </p>
+            </div>
+        </div>
+    );
+};
+
+export default Login;
