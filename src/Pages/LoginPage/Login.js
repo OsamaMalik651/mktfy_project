@@ -6,6 +6,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import "./Login.css";
 import Modal from "../../components/Modal/Modal";
 import LoginModal from "../../components/LoginModal/LoginModal";
+import ForgetPWModal from "../../components/ForgetPasswordModal/ForgetPWModal";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
@@ -31,6 +32,9 @@ const Login = () => {
                 <Modal>
                     <Routes>
                         <Route path="/login" element={<LoginModal close={() => setShowModal(!showModal)} />} />
+                        <Route path="/forgetpassword" element={<ForgetPWModal modalType="forget" close={() => setShowModal(!showModal)} />} />
+                        <Route path="/resetpassword" element={<ForgetPWModal modalType="reset" close={() => setShowModal(!showModal)} />} />
+
                     </Routes>
                 </Modal>
             }
