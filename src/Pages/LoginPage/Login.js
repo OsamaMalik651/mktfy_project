@@ -7,14 +7,22 @@ import "./Login.css";
 import Modal from "../../components/Modal/Modal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 import ForgetPWModal from "../../components/ForgetPasswordModal/ForgetPWModal";
+import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
+
+    const navigate = useNavigate();
     const changeLoginModalState = () => {
         setShowModal(true);
         navigate("/login");
     };
-    const navigate = useNavigate();
+
+    const changeCreateAccountModalState = () => {
+        navigate("/signup");
+        setShowModal(true)
+    };
+
     return (
         <div className="login">
             <div className="login__container">
@@ -25,7 +33,8 @@ const Login = () => {
                     <Button color="#FFBA00" onClick={changeLoginModalState}>
                         Login
                     </Button>
-                    <Button color="#6318AF"> Create Account </Button>
+                    <Button color="#6318AF" onClick={changeCreateAccountModalState}> Create Account </Button>
+
                 </div>
             </div>
             {showModal &&
@@ -34,6 +43,7 @@ const Login = () => {
                         <Route path="/login" element={<LoginModal close={() => setShowModal(!showModal)} />} />
                         <Route path="/forgetpassword" element={<ForgetPWModal modalType="forget" close={() => setShowModal(!showModal)} />} />
                         <Route path="/resetpassword" element={<ForgetPWModal modalType="reset" close={() => setShowModal(!showModal)} />} />
+                        <Route path="/signup" element={<CreateAccountModal close={() => setShowModal(!showModal)} />} />
 
                     </Routes>
                 </Modal>
