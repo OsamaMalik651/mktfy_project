@@ -52,7 +52,7 @@
   margin-top: 1.5rem;
 }
 .FPModal_Bottom > .ForgotPassword {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 .FPModal_Bottom > .ForgotPassword > a {
   text-align: right;
@@ -61,5 +61,5 @@
   font-weight: normal;
 }
 .FPModal_Bottom > .Button {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }

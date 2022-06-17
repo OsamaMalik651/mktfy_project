@@ -14,6 +14,10 @@ import { Link, useNavigate } from 'react-router-dom'
 const ResetPWModal = ({ close, create }) => {
     const [checked, setChecked] = useState(false)
     let navigate = useNavigate();
+
+    const handleSubmit = () => {
+        navigate("/success")
+    }
     return (
         <Modal>
             <div className='ResetPWModal'>
@@ -57,7 +61,7 @@ const ResetPWModal = ({ close, create }) => {
                         </div>
                     }
                     <div className="Button" >
-                        <Button color="#6318AF" disabled={false}>{create ? "Create Account" : "Submit"}</Button>
+                        <Button onClick={handleSubmit} color="#6318AF" disabled={false}>{create ? "Create Account" : "Submit"}</Button>
                     </div>
                 </div>
             </div>

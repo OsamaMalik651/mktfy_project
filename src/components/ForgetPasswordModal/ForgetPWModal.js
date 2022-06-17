@@ -34,6 +34,10 @@ const ForgetPWModal = ({ close, modalType }) => {
     const checkVerificationCode = (enteredCode) => {
         setVerificationCode(enteredCode)
     }
+
+    const handleVerificationCodeSubmit = () => {
+        navigate("/createpassword")
+    }
     return (
 
         <div className='ForgetPWModal'>
@@ -87,7 +91,7 @@ const ForgetPWModal = ({ close, modalType }) => {
                         <a href="#">I didn’t receive the code, Please send it again</a>
                     </div>}
                     <div className="Button">
-                        <Button color="#6318AF" >Sumbit</Button>
+                        <Button color="#6318AF" onClick={handleVerificationCodeSubmit}>Sumbit</Button>
                     </div>
                 </div>
                 )}
