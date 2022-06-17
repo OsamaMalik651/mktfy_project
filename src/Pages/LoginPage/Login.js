@@ -8,6 +8,7 @@ import Modal from "../../components/Modal/Modal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 import ForgetPWModal from "../../components/ForgetPasswordModal/ForgetPWModal";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
+import ResetPWModal from "../../components/ResetPasswordModal/ResetPWModal";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
@@ -44,6 +45,7 @@ const Login = () => {
                         <Route path="/forgetpassword" element={<ForgetPWModal modalType="forget" close={() => setShowModal(!showModal)} />} />
                         <Route path="/resetpassword" element={<ForgetPWModal modalType="reset" close={() => setShowModal(!showModal)} />} />
                         <Route path="/signup" element={<CreateAccountModal close={() => setShowModal(!showModal)} />} />
+                        <Route path="/createPassword" element={<ResetPWModal create={true} close={() => setShowModal(!showModal)} />} />
 
                     </Routes>
                 </Modal>
