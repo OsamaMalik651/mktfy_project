@@ -1,0 +1,59 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal_Body {
+}
+.Modal_Top {
+  align-self: flex-end;
+  margin: 1.875rem 1.875rem auto auto;
+}
+.Modal_Top button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Modal_Bottom {
+  width: 33.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+.Modal_Bottom h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #9349de;
+  line-height: 3.125rem;
+  margin: 0.5rem auto;
+}
+.Modal_Inputs {
+  width: fit-content;
+  height: max-content;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ForgotPassword {
+  width: 33.25rem;
+  text-align: right;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.ForgotPassword > a {
+  color: #ffba00;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

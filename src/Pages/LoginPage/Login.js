@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 import Button from "../../components/Button/Button";
-// import Modal from "../components/Modal/Modal";
+import { Route, Routes, useNavigate } from "react-router-dom";
+
 import "./Login.css";
+import Modal from "../../components/Modal/Modal";
+import LoginModal from "../../components/LoginModal/LoginModal";
 
 const Login = () => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const changeLoginModalState = () => {
-        setShowLoginModal(true);
+        setShowModal(true);
+        navigate("/login");
     };
-
+    const navigate = useNavigate();
     return (
         <div className="login">
             <div className="login__container">
@@ -23,7 +27,13 @@ const Login = () => {
                     <Button color="#6318AF"> Create Account </Button>
                 </div>
             </div>
-            {/* {showLoginModal && <Modal close={() => setShowLoginModal(false)} />} */}
+            {showModal &&
+                <Modal>
+                    <Routes>
+                        <Route path="/login" element={<LoginModal close={() => setShowModal(!showModal)} />} />
+                    </Routes>
+                </Modal>
+            }
             <div className="footer__text">
                 <p>
                     Find out more about us!
