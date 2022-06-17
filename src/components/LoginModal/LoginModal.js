@@ -17,7 +17,7 @@ const LoginModal = ({ close }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // navigate("/success")
+        navigate("/success")
     }
 
     // Make the below function reusable
