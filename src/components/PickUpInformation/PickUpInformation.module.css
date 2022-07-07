@@ -1,5 +1,5 @@
 .PickUpInformationPage {
-  width: inherit;
+  /* width: inherit; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -7,6 +7,9 @@
   margin: 2.875rem 8.875rem;
   height: max-content;
   box-sizing: border-box;
+  align-self: flex-start;
+  margin-top: 5.25rem;
+  gap: 1.125rem;
 }
 .PickUpInformation {
   width: 33.25rem;
@@ -149,4 +152,14 @@
 }
 .Address {
   font-size: 0.875rem;
+}
+
+.PickUpConfirm {
+  height: auto;
+  margin-top: 2.188rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 5.25rem;
 }
