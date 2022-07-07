@@ -52,7 +52,7 @@ const UserDropDown = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/change-password">
+                                <Link to="/account/change-password">
                                     Change Password
                                 </Link>
                             </li>
