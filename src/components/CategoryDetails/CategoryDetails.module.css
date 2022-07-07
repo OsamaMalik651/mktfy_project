@@ -1,12 +1,11 @@
 .CategoryDetails {
-  width: inherit;
+  width: initial;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   margin: 1.875rem 8.875rem;
   height: max-content;
-  background-color: aqua;
 }
 .BreadCrumb_Section {
   width: inherit;

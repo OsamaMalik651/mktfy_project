@@ -6,6 +6,7 @@ import TOS from "./components/TosAndPrivacyPolicy/TOS";
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Homepage from './components/Homepage/Homepage';
 import Category from './components/Category/Category';
+import CategoryDetails from './components/CategoryDetails/CategoryDetails';
 
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
         <Route path="/*" exact element={<Login />} />
         <Route path="/home" element={<Dashboard />}>
           <Route index element={<Homepage />} />
-          <Route path="category" element={<Category />} />
+          <Route path="category" element={<Category />}>
+            <Route index element={<CategoryDetails />} />
+
+          </Route>
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />
