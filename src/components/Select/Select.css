@@ -1,12 +1,94 @@
+/* .Select {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: stretch;
+  width: 16rem;
+  height: 6.375rem;
+  font-family: "Open Sans", sans-serif;
+}
+.InputLabel {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  height: 1.4rem;
+  text-transform: capitalize;
+  width: inherit;
+  padding-left: 0.5rem;
+}
+.InputLabel > label {
+  color: #6b6b6c;
+  font-size: 1rem;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+.Button {
+  display: flex;
+  width: inherit;
+  height: 4.375rem;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.Button > button {
+  background-color: white;
+  border: none;
+  flex: 1;
+  font-size: 1.2rem;
+  color: #4d4d4d60;
+  text-align: left;
+}
+.DrowpDownArrow {
+  fill: #6318af;
+}
+.Menu {
+  position: absolute;
+  margin-top: 14rem;
+  box-sizing: border-box;
+  width: inherit;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  display: none;
+}
+.Menu:active {
+  color: aqua;
+}
+.Menu :hover {
+  background-color: #f1f1f1;
+}
+.Menu > li {
+  width: inherit;
+  font-size: 0.9rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+.Menu > li:active {
+  color: #9349de;
+}
+
+.Show {
+  display: flex;
+} */
+
 .Input {
   width: 33.25rem;
-  min-height: 6.375rem;
+  min-height: 5.375rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
-  /* border: 1px solid #e2e2e2; */
 }
 .InputLabel {
   display: flex;
@@ -14,42 +96,86 @@
   align-items: center;
   gap: 0.5rem;
   height: 1.4rem;
+  text-transform: capitalize;
 }
-
-.Select {
-  display: flex;
-  align-self: flex-start;
-  align-items: stretch;
-  width: 16rem;
-  height: 4.25rem;
-}
-.Select > select {
-  width: inherit;
-  border: 1px solid #e2e2e2;
-  display: flex;
-  border-radius: 0.2rem;
-  padding-left: 2rem;
-  font-size: 1.2rem;
-  color: #4d4d4d60;
-}
-.Select > select-selected {
-  background-color: #6e20be;
-  border: 1px solid #e2e2e2;
-}
-.Select-selected:after {
-  font-size: 2rem;
-}
-.Select > select:focus {
-  width: inherit;
-  border: 1px solid #6e20be;
-  display: flex;
-  border-radius: 0.2rem;
-}
-.Select > select > option {
-  font-size: 1.2rem;
-  color: #4d4d4d;
+.InputLabel > label {
+  color: #6b6b6c;
+  font-size: 1rem;
   letter-spacing: 0px;
   opacity: 1;
 }
-.Select > select > option > :disabled {
+.Select {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  width: 16rem;
+  height: 4.25rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #4d4d4d60;
+  background-color: white;
+}
+.Select > button {
+  background-color: white;
+  border: none;
+  flex: 1;
+  font-size: 1.2rem;
+  color: #4d4d4d60;
+  text-align: left;
+  cursor: pointer;
+  padding-left: 1rem;
+}
+
+.DropDownArrow {
+  margin-right: 0.5rem;
+  filter: brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(4187%)
+    hue-rotate(269deg) brightness(86%) contrast(100%);
+}
+.Open {
+  transform: rotate(180deg);
+}
+.options {
+  border: 1px solid black;
+}
+.Menu {
+  position: absolute;
+  margin-top: 6.5rem;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  width: inherit;
+  background-color: white;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: black;
+  display: none;
+  height: max-content;
+}
+
+.Menu :hover {
+  background-color: #f1f1f1;
+  color: #9349de;
+}
+.Menu > li {
+  width: inherit;
+  font-size: 0.9rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+.Menu > li:active {
+  color: #9349de;
+}
+
+.Show {
+  display: flex;
 }

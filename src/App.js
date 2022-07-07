@@ -8,6 +8,9 @@ import Homepage from './components/Homepage/Homepage';
 import Category from './components/Category/Category';
 import CategoryDetails from './components/CategoryDetails/CategoryDetails';
 import Product from './components/Product/Product';
+import CreateListing from './Pages/CreateListing/CreateListing';
+import CreateListingCard from './components/CreateListingCard/CreateListingCard';
+import UploadImageModal from './components/UploadImageModal/UploadImageModal';
 
 
 function App() {
@@ -21,6 +24,10 @@ function App() {
             <Route index element={<CategoryDetails />} />
             <Route path="product" element={<Product />} />
           </Route>
+        </Route>
+        <Route path="/create-listing" element={<CreateListing />} >
+          <Route index element={<CreateListingCard />} />
+          <Route path="upload-images" element={<UploadImageModal />} />
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />
