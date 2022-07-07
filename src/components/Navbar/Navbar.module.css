@@ -1,0 +1,79 @@
+.Navbar {
+  width: 100vw;
+  height: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  background-color: #6318af;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+.NavbarTop {
+  display: flex;
+  width: inherit;
+  height: 3.75rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-left: 8.5rem;
+  align-items: center;
+}
+.NavbarTopLogo {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  margin-right: 1.2rem;
+}
+.NavbarTopLogo > img {
+  width: 7.375rem;
+}
+.NavbarTopSearch {
+  width: 63.25rem;
+}
+.NavbarTopUser {
+  width: 10.188rem;
+  height: 2.875rem;
+  margin-left: 3rem;
+}
+.NavbarTopNotification {
+  height: 2.875rem;
+  display: flex;
+  align-items: center;
+  margin-left: 2.375rem;
+}
+
+.NavbarTopCreateListing {
+  margin-left: 4.438rem;
+}
+.Button {
+  width: 9.688rem;
+  height: 3.125rem;
+  background-color: #ffba00;
+  font-size: 0.875rem;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.313rem;
+}
+.NavbarBottom {
+  width: 50.5rem;
+  height: 1.5rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin-left: 17rem;
+  align-self: flex-start;
+  display: flex;
+  gap: 3.375rem;
+  margin-bottom: 1.3rem;
+}
+.NavbarBottom > a {
+  display: flex;
+  width: max-conten;
+  align-items: center;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}

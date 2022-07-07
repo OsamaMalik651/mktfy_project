@@ -1,0 +1,63 @@
+.SearchBar {
+  width: inherit;
+  height: 3.75rem;
+  background-color: white;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Button {
+  height: 1.3rem;
+}
+.Button > button {
+  width: 7.735rem;
+  border: none;
+  background-color: white;
+  color: #0000007e;
+  font-weight: bold;
+  font-size: 1rem;
+  border-right: 1px solid #d3d3d3;
+  cursor: pointer;
+}
+
+.Button > button:active {
+  font-size: 0.95rem;
+}
+.Input {
+  width: 46.875rem;
+  height: 1.3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Input > input {
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0px;
+}
+.Input > button {
+  background-color: white;
+  height: inherit;
+  border: none;
+  border-right: 1px solid #d3d3d3;
+  box-sizing: border-box;
+  padding: 0rem 2.775rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.Input > button :active {
+  height: 1.05rem;
+}
+.Input > button > img {
+  height: 1.1rem;
+}
+.Dropdown {
+  width: 9rem;
+}

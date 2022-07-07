@@ -7,7 +7,6 @@ const Dashboard = () => {
     return (
         <div className={styles.Dashboard}>
             <Layout>
-                {/* <Homepage /> */}
                 <Outlet />
             </Layout>
         </div>
