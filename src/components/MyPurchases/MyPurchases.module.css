@@ -1,0 +1,41 @@
+.MyPurchases {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 2.875rem 8.875rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.BreadCrumb_Section {
+  width: inherit;
+}
+.Heading_Section > * {
+  margin: 0;
+  padding: 0;
+}
+.Heading_Section {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  gap: 1rem;
+  color: #4d4d4d;
+}
+.Heading_Section > h1 {
+  font-size: 2.5rem;
+}
+.Heading_Section > p {
+  font-size: 1rem;
+}
+.MyPurchase_Section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 1.875rem;
+}
