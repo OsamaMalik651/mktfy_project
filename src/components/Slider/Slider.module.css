@@ -1,0 +1,27 @@
+.Slider {
+  width: 102.25rem;
+  box-sizing: border-box;
+  min-height: 30rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 1.9rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.Slider::-webkit-scrollbar {
+  display: none;
+}
+
+.Slider_Heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.Slider_Cards {
+  display: flex;
+  gap: 1.4rem;
+}
