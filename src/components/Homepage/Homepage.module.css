@@ -41,8 +41,8 @@
   background: none;
   border: none;
 }
-.HomePage_BannerButtons > button > img {
-}
+/* .HomePage_BannerButtons > button > img {
+} */
 .HomePage_BannerButtons > button:hover {
   cursor: pointer;
 }

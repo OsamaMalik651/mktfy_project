@@ -5,6 +5,7 @@ import SuccessAnimation from "./components/SuccessAnimation/SuccessAnimation";
 import TOS from "./components/TosAndPrivacyPolicy/TOS";
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Homepage from './components/Homepage/Homepage';
+import Category from './components/Category/Category';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/*" exact element={<Login />} />
         <Route path="/home" element={<Dashboard />}>
           <Route index element={<Homepage />} />
+          <Route path="category" element={<Category />} />
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />

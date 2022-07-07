@@ -1,0 +1,79 @@
+.Sidebar {
+  width: 24.2rem;
+  height: 69.2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: space-evenly; */
+}
+.Sidebar > section:first-child {
+  border: none;
+  flex-grow: 0;
+}
+.Sidebar > section {
+  width: 24.2rem;
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+.Sidebar > section > h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-left: 1.4rem;
+  margin-top: 2rem;
+}
+.Sidebar > section > h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding-left: 1.4rem;
+}
+.Sidebar > section > p {
+  width: initial;
+  line-height: 2.875rem;
+  padding-left: 2.8rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Sidebar > section > p:hover {
+  color: black;
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+.Sidebar > hr {
+  border: 1px solid #e2e2e2;
+  width: inherit;
+  display: none;
+}
+.Inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.Sidebar_Input {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+.Sidebar_Input > label {
+  font-size: 1rem;
+  line-height: 1.3rem;
+}
+.Sidebar_Input > input {
+  outline: 1px solid black;
+  width: 7.68rem;
+  height: 2.5rem;
+}
+
+.Sidebar_Button {
+  text-align: center;
+}
