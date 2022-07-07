@@ -14,7 +14,10 @@ import UploadImageModal from './components/UploadImageModal/UploadImageModal';
 import Account from './Pages/AccountInformation/Account';
 import AccountInfo from './components/AccountInfo/AccountInfo';
 import ChangePassword from './components/ChangePassword/ChangePassword';
-
+import MyListings from './Pages/MyListings/MyLisings';
+import MyListingDetails from './components/MyListingDetails/MyListingDetails';
+import Dummydata from "./dummyData.json";
+import MyListingEdit from './components/MyListingEdit/MyListingEdit';
 
 function App() {
   return (
@@ -35,6 +38,10 @@ function App() {
         <Route path="/account" element={<Account />}>
           <Route index element={<AccountInfo />} />
           <Route path='change-password' element={<ChangePassword />} />
+        </Route>
+        <Route path="/my-listings" element={<MyListings />}>
+          <Route index element={<MyListingDetails data={Dummydata} />} />
+          <Route path='mylistingEdit' element={<MyListingEdit />} />
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />

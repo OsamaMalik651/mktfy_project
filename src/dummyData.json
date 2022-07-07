@@ -1,0 +1,248 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "title": "Mazda MX-5 2006",
+      "price": 15550,
+      "condition": "used",
+      "description": "This RARE Mazda MX-5 RF GS Sport Package has a 6 speed manual transmission comes stacked with Recaro* leather sport seats, Heated front seats, Navigation, Brembo* front brakes, Hill launch assist, Limited slip differential, Advanced blind spot monitoring, Rear cross traffic alert, Keyless entry, Push button start, Bluetooth, Rain sensing front wipers and so much more.",
+      "images": [],
+      "sellerName": "Nonnah Grinter",
+      "sellerListingCount": 6,
+      "city": "calgary",
+      "address": "163 Main St"
+    },
+    {
+      "id": 2,
+      "title": "Buick LeSabre 1996",
+      "price": 18000,
+      "condition": "used",
+      "description": "Excellent condition. Purchased in California. Oil, transmission, radiator all excellent. Engine runs smooth - no exhaust issues like smoke etc. Primarily used for highway driving. Interior excellent.",
+      "images": [],
+      "sellerName": "Pauline Gerriets",
+      "sellerListingCount": 3,
+      "city": "calgary",
+      "address": "858 Westwood St"
+    },
+    {
+      "id": 3,
+      "title": "Dodge Viper 2003",
+      "price": 8500,
+      "condition": "used",
+      "description": "Viper Black Clearcoat/Black Soft Top 2003 Dodge Viper ***HEATED LEATHER INTERIOR***, LOW MILEAGE, 18'Front 19'Rear Aluminum Wheels, 4-Wheel Disc Brakes, 5 Speakers, Adjustable pedals, Air Conditioning, Bumpers: body-color, CD player, Dual front impact airbags, Four wheel independent suspension, Front Bucket Seats, Front fog lights, Front reading lights, High intensity discharge headlights: Xenon, Leather steering wheel, Low tire pressure warning, Power steering, Power windows, Rear anti-roll bar, Rear window defroster.",
+      "images": [],
+      "sellerName": "Gordan Rosendahl",
+      "sellerListingCount": 4,
+      "city": "calgary",
+      "address": "323 North St"
+    },
+    {
+      "id": 4,
+      "title": "GMC Sonoma 2001",
+      "price": 5600,
+      "condition": "used",
+      "description": "I have a 2001 Sonoma for sale. it was running perfectly a couple months ago when the 4in lift went on right after purchase.probably needs a new battery and sparkplugs cleaned & regapped (or just replaced).I bought it for a work truck and came into possession of a full sized truck better fitted for my job.only 147k on it. has 4x4.minimal effort for maximum return",
+      "images": [],
+      "sellerName": "Ferdinand Garbett",
+      "sellerListingCount": 7,
+      "city": "calgary",
+      "address": "25 Amoth Point"
+    },
+    {
+      "id": 5,
+      "title": "Chevrolet Corvette 1995",
+      "price": 6300,
+      "condition": "used",
+      "description": "Competition Yellow 1995 Chevrolet Corvette RWD 6-Speed Manual 5.7L V8 16V *Leather Seats, 6-Way Power Driver Seat, Alloy wheels, AM/FM radio, Automatic Air Conditioning, Front fog lights, Heated door mirrors, Leather steering wheel, Power door mirrors, Power windows, Preferred Equipment Group 1, Rear window defroster, Selective Ride & Handling Package, Speed control.",
+      "images": [],
+      "sellerName": "Lexis Najara",
+      "sellerListingCount": 5,
+      "city": "calgary",
+      "address": "43 Union Point"
+    },
+    {
+      "id": 6,
+      "title": "BMW M5 2001",
+      "price": 6900,
+      "condition": "",
+      "description": "2001 E39 M5Low mileage, accident free and a clean carfax. Jet Black on Black Nappa Leather. Service records dating back to 2008. Recent repairs in the past 2 years include, new rear shocks, new rear tires, new valve cover gasket, rear sway bar brackets replaced, front brake rotors replaced, power steering fluid changed, windshield washer pump replaced, stage 2 paint correction.",
+      "images": [],
+      "sellerName": "Celka Betjes",
+      "sellerListingCount": 8,
+      "city": "calgary",
+      "address": "443 Delaware Avenue"
+    },
+    {
+      "id": 7,
+      "title": "Ford Explorer 2000",
+      "price": 4600,
+      "condition": "",
+      "description": "Grab a deal here at Lakeview Motors. Checkout this Outstanding 2000 Ford Explorer Sport 2DR 4X4. RUST FREE, UNDERCOATED YEARLY. Equipped with Features Such As: Cloth Seats, Rear Bench Seats, Power Windows, Power Mirrors, Power Door Locks, Power Drivers Seat W/ Lumber Support, Remote Keyless Entry, Rear Folding Seats, Rear Cargo Cover, Security System, 4Wheel Disc Brakes.",
+      "images": [],
+      "sellerName": "Ralph Kilbane",
+      "sellerListingCount": 11,
+      "city": "calgary",
+      "address": "90 Mallory Avenue"
+    },
+
+    {
+      "id": 8,
+      "title": "Toyota Avalon 2008",
+      "price": 13200,
+      "condition": "",
+      "description": "RIDE AROUND IN TOTAL COMFORT IN THIS AVALON XLS WITH TOYOTA'S EVERLASTING 3.5L V6 ENGINE. LOADED WITH OPTIONS INCLUDING HEATED/POWER/ LEATHER SEATS, BLUETOOTH, POWER SUNROOF, PREMIUM SOUND, AUX INPUT, TRACTION CONTROL, TPMS, HOMELINK. This Avalon is a 1 owner, local vehicle bought new at Sherwood Park Toyota.",
+      "images": [],
+      "sellerName": "Aldous Birwhistle",
+      "sellerListingCount": 6,
+      "city": "calgary",
+      "address": "43 Union Point"
+    },
+    {
+      "id": 9,
+      "title": "Toyota Sienna 2001",
+      "price": 9500,
+      "condition": "",
+      "description": "Up for Auction this Saturday June 25th. Automatic, Radio, Third Row Seats, Power Windows, Power Door Locks, Leather, Sunroof",
+      "images": [],
+      "sellerName": "Cati Chalfant",
+      "sellerListingCount": 8,
+      "city": "calgary",
+      "address": "9 Hauk Junction"
+    },
+    {
+      "id": 10,
+      "title": "Infiniti Q 2000",
+      "price": 7400,
+      "condition": "",
+      "description": "2000 QX4 fully loaded equipped with heated seats, keyless entry , power locks , sunroof no rips Interior in great condition 4 x 4 works great Always serviced at the dealership have all records to prove it Never missed a service just had new brakes done oil change and lots more it has about 250000km and has plenty more life",
+      "images": [],
+      "sellerName": "Lorilyn L'Episcopio",
+      "sellerListingCount": 8600,
+      "city": "calgary",
+      "address": "3 Northfield Trail"
+    }
+  ],
+  "furniture": [
+    {
+      "id": 1,
+      "title": "King Size Mattress Sale",
+      "price": 299,
+      "condition": "new",
+      "description": "Canadian Mattress Wholesalers - Calgary's Most Awarded Mattress StoreAlberta's First Stop for King Mattresses.CMW has New King Mattresses Starting from Only $299. ",
+      "images": [],
+      "sellerName": "Canadian Mattress Wholesalers",
+      "sellerListingCount": 6,
+      "address": "456 Ce dar Dr",
+      "city": "Calgary"
+    },
+    {
+      "id": 2,
+      "title": "Desk & Credenza Custom Made MDF",
+      "price": 975,
+      "condition": "used",
+      "description": "Like new custom made black desk and credenza with white granite look top.Desk has 5 drawers.Cabinet has 2 big drawers and 2 doors that open for storage.Made of MDF",
+      "images": [],
+      "sellerName": "Henry",
+      "sellerListingCount": 2,
+      "address": "123 Main St",
+      "city": "Calgary"
+    },
+    {
+      "id": 3,
+      "title": "Dining Table with Roll Top Extension",
+      "price": 100,
+      "condition": "used",
+      "description": "",
+      "images": [],
+      "sellerName": "",
+      "sellerListingCount": 0,
+      "address": "32 Cherry St",
+      "city": "Calgary"
+    },
+    {
+      "id": 4,
+      "title": "Marble top side table with gold legs for sale",
+      "price": 90,
+      "condition": "used",
+      "description": "Moving sale. Marble top side table for sale. $90.00.",
+      "images": [],
+      "sellerName": "Treena Rousseau",
+      "sellerListingCount": 0,
+      "address": "123 North St",
+      "city": "Calgary"
+    },
+    {
+      "id": 5,
+      "title": "Solid Wood TV Entertainment Stand",
+      "price": 100,
+      "condition": "",
+      "description": "Good condition low profile tv stand. Originally bought from the brick for $400. Has some minor scratches but overall in great shape. Glass doors on center cupboards with lots of storage space. 54\"W x 20\"D x 25\"H. In garage ready to load. Delivery negotiable",
+      "images": [],
+      "sellerName": "Thomas H ",
+      "sellerListingCount": 0,
+      "address": "49 North St",
+      "city": "Calgary"
+    },
+    {
+      "id": 6,
+      "title": "Good Condition Solid Wood Dresser for Sale",
+      "price": 220,
+      "condition": "used",
+      "description": "Good Condition Solid Wood Dresser",
+      "images": [],
+      "sellerName": "don",
+      "sellerListingCount": 0,
+      "address": "5700 ridgeway blvd"
+    },
+    {
+      "id": 7,
+      "title": "5ft dresser and mirror set",
+      "price": 150,
+      "condition": "used",
+      "description": "5ft dresser with mirror on top. Mirror comes off for easy moving. Solid wood, in not bad shape. Was Grandparents so don't need anymore.",
+      "images": [],
+      "sellerName": "Nick",
+      "sellerListingCount": 0,
+      "city": "Calgary",
+      "address": "348 oak st"
+    },
+    {
+      "id": 8,
+      "title": "Solid wood locking cabinet for sale with shelves",
+      "price": 100,
+      "condition": "used",
+      "description": "Solid Wood cabinet for sale. 41.5\"x48\" x 16\"$100.00. Calgary NW",
+      "images": [],
+      "sellerName": "Treena Rousseau",
+      "sellerListingCount": 0,
+      "city": "Calgary",
+      "address": "33 parkway st"
+    },
+    {
+      "id": 9,
+      "title": "New Cabinet, indoor/outdoor, beige**leaving the province sale",
+      "price": 190,
+      "condition": "used",
+      "description": "This gorgeous and clean cabinet is almost brand new and it’s available for pickup in Calgary NW. The actual price is $330, we sell it for $190.",
+      "images": [],
+      "sellerName": "Zahra",
+      "sellerListingCount": 0,
+      "city": "Calgary",
+      "address": "475 eastwood ave"
+    },
+    {
+      "id": 10,
+      "title": "TV Armoire",
+      "price": 180,
+      "condition": "used",
+      "description": "Beautiful wood antique-style TV armoire/hutch. Hide your TV away behind closed doors when not in use. This is a decorative and functional piece that will work in a living room, bonus room or guest bedroom. Storage drawer at the bottom and adjustable shelving inside for other electronics.",
+      "images": [],
+      "sellerName": "Mandy MacCorquodale",
+      "sellerListingCount": 0,
+      "city": "Calgary",
+      "address": "45 northwood st"
+    }
+  ],
+  "electronics": [],
+  "real_estate": []
+}
