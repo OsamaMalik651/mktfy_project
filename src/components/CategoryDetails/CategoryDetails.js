@@ -3,7 +3,7 @@ import BreadCrumb from '../BreadCrumb/BreadCrumb'
 import Listings from '../Listings/Listings'
 import Sidebar from '../Sidebar/Sidebar'
 
-// import PaginationComponent from '../Pagination/Pagination'
+import PaginationComponent from '../Pagination/Pagination'
 // import Sidebar from '../Sidebar/Sidebar'
 import styles from "./CategoryDetails.module.css"
 
@@ -26,7 +26,7 @@ const CategoryDetails = () => {
                 <Listings />
             </div>
             <div className={styles.PaginationSection}>
-                {/* <PaginationComponent /> */}
+                <PaginationComponent />
             </div>
 
         </div>

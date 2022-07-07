@@ -1,0 +1,90 @@
+.pagination {
+  display: none;
+}
+.ant-pagination-item-container {
+  border: 1px solid #b9c0cc;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-pagination-item-container > span {
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  color: #89909b;
+}
+.ant-pagination-item-container > span > svg {
+  display: none;
+}
+.pagination > li :disabled {
+  cursor: disabled;
+  display: none;
+  list-style-type: none;
+}
+
+.pagination > li > button > span > svg {
+  fill: #89909b;
+  cursor: pointer;
+}
+
+.pagination > li :enabled {
+  color: white;
+  border: none;
+}
+
+.ant-pagination-item-active {
+  background-color: #5b2bae;
+  border-radius: 4px;
+}
+.ant-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.ant-pagination-prev > button {
+  border: none;
+}
+.pagination > li > button > {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  border: none;
+}
+.ant-pagination-item {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.ant-pagination-item > a {
+  border: 1px solid #b9c0cc;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #89909b;
+  font-size: 24px;
+  font-weight: bold;
+}
+.ant-pagination-item-active > a {
+  background-color: #5b2bae;
+  color: white;
+}
+.ant-pagination-item > a:hover {
+  background-color: #5b2bae;
+  border: 1px solid #5b2bae;
+  color: white;
+}
