@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Homepage from './components/Homepage/Homepage';
 import Category from './components/Category/Category';
 import CategoryDetails from './components/CategoryDetails/CategoryDetails';
+import Product from './components/Product/Product';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="category" element={<Category />}>
             <Route index element={<CategoryDetails />} />
-
+            <Route path="product" element={<Product />} />
           </Route>
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
