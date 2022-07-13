@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from "./MyListingCard.module.css"
 import PlaceholderImage from "../../assets/placeholder-image.png"
-const MyListingCard = ({ state, Carddata, purchase }) => {
+const MyListingCard = ({ state, Carddata, purchase, onClick }) => {
     return (
-        <div className={styles.MyListingCard}>
+        <div className={styles.MyListingCard} onClick={onClick && onClick}>
             <img src={PlaceholderImage} alt="" className={styles.Image} />
             <div className={`${styles.Details} ${styles.Purchases}`}>
                 {state && state === "pending" ? <p className={styles.PendingTag}> Pending State</p> : (state === "sold" &&

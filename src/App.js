@@ -18,6 +18,9 @@ import MyListings from './Pages/MyListings/MyLisings';
 import MyListingDetails from './components/MyListingDetails/MyListingDetails';
 import Dummydata from "./dummyData.json";
 import MyListingEdit from './components/MyListingEdit/MyListingEdit';
+import MyPurchase from './Pages/MyPurchase/MyPurchase';
+import MyPurchases from './components/MyPurchases/MyPurchases';
+import PickUpInformation from './components/PickUpInformation/PickUpInformation';
 
 function App() {
   return (
@@ -42,6 +45,10 @@ function App() {
         <Route path="/my-listings" element={<MyListings />}>
           <Route index element={<MyListingDetails data={Dummydata} />} />
           <Route path='mylistingEdit' element={<MyListingEdit />} />
+        </Route>
+        <Route path="/my-purchases" element={<MyPurchase />}>
+          <Route index element={<MyPurchases />} />
+          <Route path='pickupInfo' element={<PickUpInformation />} />
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />

@@ -1,0 +1,152 @@
+.PickUpInformationPage {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 2.875rem 8.875rem;
+  height: max-content;
+  box-sizing: border-box;
+}
+.PickUpInformation {
+  width: 33.25rem;
+  height: 31.75rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+  background-color: white;
+  border: 1px solid #f2f2f2;
+  border-radius: 0.4rem;
+}
+.BreadCrumb_Section {
+  width: inherit;
+}
+.PickUpInformation_Top {
+  width: inherit;
+}
+.PickUpInformation_Top > h1 {
+  font-size: 2.5rem;
+  color: #9349de;
+  font-weight: bold;
+  margin-top: 3.75rem;
+}
+.MyListingCard {
+  width: 29.5rem;
+  height: 7.813rem;
+  background-color: white;
+  display: flex;
+  box-shadow: 0px 1px 0px #00000024;
+}
+.Image {
+  width: 14.125rem;
+  height: inherit;
+  border-radius: 10px 0px 0px 10px;
+}
+.Details > * {
+  margin: 0;
+  padding: 0;
+}
+.Details {
+  height: inherit;
+  border-radius: 0px 10px 10px 0px;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 1.25rem 0.938rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.Detail > * {
+  margin: 0;
+  padding: 0;
+}
+.Detail {
+  padding-left: 0.312rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.Heading {
+  font-size: 0.875rem;
+  color: black;
+}
+.Price {
+  color: #6318af;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.Condition {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.Circle {
+  width: 0.438rem;
+  height: 0.438rem;
+  background-color: #5b2bae;
+  border-radius: 50%;
+  display: inline-block;
+}
+.PickUpInformation_Bottom > * {
+  margin: 0;
+  padding: 0;
+}
+.PickUpInformation_Bottom {
+  height: 7.375rem;
+  margin-top: 2.188rem;
+  display: flex;
+  flex-direction: column;
+}
+.PickUpInformation_Bottom > p {
+  color: #6cc04b;
+}
+.SellerInfo {
+  margin-bottom: 1.438rem;
+  margin-top: 0.563rem;
+}
+.SellerInfo_Left {
+  display: flex;
+  align-items: center;
+  height: 3.125rem;
+  gap: 0.6rem;
+}
+.Profile {
+  background-color: #6318af;
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.Profile > h1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.ProfileDetails > * {
+  margin: 0;
+  padding: 0;
+}
+.ProfileDetails {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.ProfileDetails > h1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.ProfileDetails > p {
+  font-size: 1rem;
+  color: #9349de;
+}
+.Address {
+  font-size: 0.875rem;
+}
