@@ -1,0 +1,55 @@
+.Input {
+  width: 33.25rem;
+  min-height: 6.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  /* border: 1px solid #e2e2e2; */
+}
+.InputLabel {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.4rem;
+}
+
+.Select {
+  display: flex;
+  align-self: flex-start;
+  align-items: stretch;
+  width: 16rem;
+  height: 4.25rem;
+}
+.Select > select {
+  width: inherit;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  border-radius: 0.2rem;
+  padding-left: 2rem;
+  font-size: 1.2rem;
+  color: #4d4d4d60;
+}
+.Select > select-selected {
+  background-color: #6e20be;
+  border: 1px solid #e2e2e2;
+}
+.Select-selected:after {
+  font-size: 2rem;
+}
+.Select > select:focus {
+  width: inherit;
+  border: 1px solid #6e20be;
+  display: flex;
+  border-radius: 0.2rem;
+}
+.Select > select > option {
+  font-size: 1.2rem;
+  color: #4d4d4d;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+.Select > select > option > :disabled {
+}

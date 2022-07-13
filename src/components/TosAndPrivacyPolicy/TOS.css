@@ -1,0 +1,61 @@
+.Tos {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.Banner {
+  width: 100vw;
+  height: 25.4rem;
+  background: url("../../assets/Image_about_us_header@2x.png") no-repeat center
+    center;
+  background-size: cover;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.BannerLogo {
+  width: inherit;
+  align-self: flex-start;
+  width: 14.25rem;
+  margin: 6rem auto auto 8.875rem;
+}
+.BannerLogo > img {
+  width: 14.25rem;
+}
+
+.BackButton {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+}
+.BackButton > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 17.75rem;
+}
+.BackButton h1 {
+  color: #434344;
+  font-size: 2rem;
+  margin-right: 45rem;
+  margin-left: auto;
+}
+.Content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Content p {
+  width: 65rem;
+  font-size: 1.25rem;
+  color: #888889;
+  text-align: left;
+}

@@ -1,0 +1,57 @@
+.LoginModal {
+  width: 50.5rem;
+  height: 39.5rem;
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 7px 12px #00000024;
+  border-radius: 10px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Modal_Top {
+  align-self: flex-end;
+  margin: 1.875rem 1.875rem auto auto;
+}
+.Modal_Top button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Modal_Bottom {
+  width: 33.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+.Modal_Bottom h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #9349de;
+  line-height: 3.125rem;
+  margin: 0.5rem auto;
+}
+.Modal_Inputs {
+  width: fit-content;
+  height: max-content;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ForgotPassword {
+  width: 33.25rem;
+  text-align: right;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.ForgotPassword > a {
+  font-style: "Open Sans", sans-serif;
+  color: #ffba00;
+  font-size: 0.9rem;
+  font-weight: normal;
+}

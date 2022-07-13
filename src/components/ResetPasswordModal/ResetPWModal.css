@@ -1,0 +1,96 @@
+.ResetPWModal {
+  width: 50.5rem;
+  height: 46.125rem;
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 7px 12px #00000024;
+  border-radius: 10px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ResetPWModal_Top {
+  width: inherit;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.875rem 1.875rem auto auto;
+}
+.ResetPWModal_Top > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0rem 1.875rem;
+}
+
+.ResetPWModal_Bottom {
+  width: 33.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ResetPWModal_Bottom h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #9349de;
+  line-height: 3.125rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+}
+.ResetPWModal_Bottom > p {
+  color: #888889;
+  font-size: 1.4rem;
+  text-align: left;
+  letter-spacing: 0px;
+  font-weight: semi-bold;
+}
+
+.ResetPWModal_Bottom > .Modal_Inputs {
+  width: fit-content;
+  height: max-content;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.ResetPWModal_Bottom > .PasswordCheckboxes {
+  align-self: flex-start;
+  margin: 1.5rem 0rem;
+}
+
+.TosMessage {
+  align-self: flex-start;
+  display: flex;
+  height: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  width: max-content;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+.CheckIcon {
+  height: 1.2rem;
+}
+.TosMessage > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+}
+.TosMessage > label {
+  font-size: 0.9rem;
+  color: #2a2e43;
+  align-self: center;
+}
+.TosMessage > label > a {
+  color: #9349de;
+}
+.ResetPWModal_Bottom > .Button {
+  margin-top: 1.5rem;
+}
