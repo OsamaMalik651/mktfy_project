@@ -46,7 +46,6 @@ const Login = () => {
                         <Route path="/resetpassword" element={<ForgetPWModal modalType="reset" close={() => setShowModal(!showModal)} />} />
                         <Route path="/signup" element={<CreateAccountModal close={() => setShowModal(!showModal)} />} />
                         <Route path="/createPassword" element={<ResetPWModal create={true} close={() => setShowModal(!showModal)} />} />
-
                     </Routes>
                 </Modal>
             }

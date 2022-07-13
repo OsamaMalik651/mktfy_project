@@ -14,13 +14,13 @@ export const Input = (props) => {
   )
   console.log(props.showError)
   return (
-    <div className={`Input ${inputType === 'email' ? 'Email' : ''}`}>
+    <div className={`Input ${props.className} ${inputType === 'email' ? 'Email' : ''}`}>
       <div className="InputLabel">
         <label htmlFor={props.label}
           className={props.showError ? 'Error' : ""}>{props.label}</label>
         {props.strength && <p className={props.strength === "Weak" ? "Weak" : "Strong"}>{props.strength}</p>}</div>
 
-      <div className={`Input_Field ${props.showError ? 'Error_border' : ""}`} >
+      <div className={`Input_Field ${props.className}${props.showError ? 'Error_border' : ""}`} >
         <input
           type={`${inputType}`}
           id={props.label}
