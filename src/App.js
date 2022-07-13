@@ -11,6 +11,9 @@ import Product from './components/Product/Product';
 import CreateListing from './Pages/CreateListing/CreateListing';
 import CreateListingCard from './components/CreateListingCard/CreateListingCard';
 import UploadImageModal from './components/UploadImageModal/UploadImageModal';
+import Account from './Pages/AccountInformation/Account';
+import AccountInfo from './components/AccountInfo/AccountInfo';
+import ChangePassword from './components/ChangePassword/ChangePassword';
 
 
 function App() {
@@ -28,6 +31,10 @@ function App() {
         <Route path="/create-listing" element={<CreateListing />} >
           <Route index element={<CreateListingCard />} />
           <Route path="upload-images" element={<UploadImageModal />} />
+        </Route>
+        <Route path="/account" element={<Account />}>
+          <Route index element={<AccountInfo />} />
+          <Route path='change-password' element={<ChangePassword />} />
         </Route>
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />
