@@ -3,8 +3,10 @@ import ImageCard from '../ImageCard/ImageCard'
 import styles from "./CategoryCard.module.css"
 
 const CategoryCard = () => {
-    const array = Array.from(Array(3).keys()).fill(<ImageCard />, 0, 10)
-
+    //Creating array of cards to display as placeholder. Will be removed upon integration wtih backend 
+    const array = Array.from(Array(3).keys()).map((index) => {
+        return <ImageCard key={index} />;
+    });
     return (
         <div className={styles.CategoryCard}>
             <div className={styles.Slider_Heading} >
@@ -14,7 +16,7 @@ const CategoryCard = () => {
                 {array}
             </div>
             <div className={styles.CategoryCard_Cta}>
-                <a href='#'>Explore Now</a>
+                <a href='/home/category'>Explore Now</a>
             </div>
         </div>
     )
