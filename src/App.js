@@ -21,6 +21,7 @@ import MyListingEdit from './components/MyListingEdit/MyListingEdit';
 import MyPurchase from './Pages/MyPurchase/MyPurchase';
 import MyPurchases from './components/MyPurchases/MyPurchases';
 import PickUpInformation from './components/PickUpInformation/PickUpInformation';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
   return (
@@ -31,7 +32,12 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="category" element={<Category />}>
             <Route index element={<CategoryDetails />} />
-            <Route path="product" element={<Product />} />
+            <Route path="product" element={<Product />}>
+              <Route index element={<ProductDetails />} />
+              <Route path="checkout" element={<PickUpInformation checkout={false} />} />
+              <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
+
+            </Route>
           </Route>
         </Route>
         <Route path="/create-listing" element={<CreateListing />} >

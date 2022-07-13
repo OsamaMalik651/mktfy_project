@@ -2,7 +2,11 @@ import React from 'react'
 import styles from "./PickUpInformation.module.css"
 import PlaceholderImage from "../../assets/placeholder-image.png"
 import BreadCrumb from '../BreadCrumb/BreadCrumb'
-const PickUpInformation = () => {
+import Button from '../Button/Button'
+import { Link, useNavigate } from 'react-router-dom'
+const PickUpInformation = ({ checkout }) => {
+    let navigate = useNavigate();
+
     return (
         <div className={styles.PickUpInformationPage}>
             <div className={styles.BreadCrumb_Section}>
@@ -27,7 +31,7 @@ const PickUpInformation = () => {
                     </div >
 
                 </div>
-                <div className={styles.PickUpInformation_Bottom}>
+                {checkout ? <div className={styles.PickUpInformation_Bottom}>
                     <p>Pick up</p>
                     <div className={styles.SellerInfo}>
                         <div className={styles.SellerInfo_Left}>
@@ -45,7 +49,13 @@ const PickUpInformation = () => {
                     <div className={styles.Address}>
                         <p>Please pick up your purchase at 12 12ave SW, Calgary, Alberta</p>
                     </div>
-                </div>
+                </div> : <div className={styles.PickUpConfirm}>
+                    <Button
+                        color="#6318AF"
+                        onClick={() => { navigate("/home/category/product/pickup-information") }}
+                    >Confirm
+                    </Button>
+                </div>}
             </div>
         </div>
 
