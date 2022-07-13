@@ -75,7 +75,7 @@ const UserDropDown = () => {
                                 <b>Help</b>
                             </li>
                             <li>
-                                <Link to="/my-purchases">
+                                <Link to="/faq">
                                     FAQ
                                 </Link>
                             </li>
