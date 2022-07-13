@@ -4,8 +4,10 @@ import styles from "./Slider.module.css"
 
 const Slider = () => {
 
-    const array = Array.from(Array(10).keys()).fill(<Card />, 0, 10)
-
+    //Creating array of cards to display as placeholder. Will be removed upon integration wtih backend 
+    const array = Array.from(Array(10).keys()).map((item, index) => {
+        return <Card key={index} />;
+    });
     return (
         <div className={styles.Slider}>
             <div className={styles.Slider_Heading}>

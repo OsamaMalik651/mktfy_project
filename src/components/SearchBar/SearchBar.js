@@ -7,7 +7,6 @@ import CityDropDown from '../CityDropDown/CityDropDown';
 const SearchBar = () => {
 
     const [city, setCity] = useState("");
-    console.log(city)
 
     return (
         <div className={styles.SearchBar}>

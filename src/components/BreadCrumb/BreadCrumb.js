@@ -12,21 +12,13 @@ const BreadCrumb = () => {
                 <Breadcrumb separator={
                     <img src={separator} className={styles.separator} alt="separator" />
                 } className={styles.BreadCrumb}>
-                    {/* {pathnames.length > 0 ? (
-                        <Breadcrumb.Item >
-                            <Link to="/">Home</Link>
-                        </Breadcrumb.Item>
-                    ) : (
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    )} */}
+
                     {pathnames.map((name, index) => {
                         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                         const isLast = index === pathnames.length - 1;
-                        return isLast ? (
-                            <Breadcrumb.Item key={index}>{name}</Breadcrumb.Item>
-                        ) : (
-                            <Breadcrumb.Item >
-                                <Link to={`${routeTo}`}>{name}</Link>
+                        return (
+                            <Breadcrumb.Item key={index}>
+                                {isLast ? name : <Link to={`${routeTo}`}>{name}</Link>}
                             </Breadcrumb.Item>
                         );
                     })}
