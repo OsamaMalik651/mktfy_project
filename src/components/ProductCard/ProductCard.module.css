@@ -1,0 +1,119 @@
+.ProductCard {
+  width: 102.25rem;
+  height: 34.875rem;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 9.25rem;
+}
+.ProductCard_Left {
+  box-sizing: border-box;
+  margin-top: 1.75rem;
+  margin-left: 5.938rem;
+  width: 49.8rem;
+}
+.ProductCard_Right {
+  width: 53.3rem;
+  height: 30.875rem;
+  margin-right: 3.872rem;
+  box-sizing: border-box;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ProductCard_Right_Details > * {
+  margin: 0;
+  padding: 0;
+}
+.ProductCard_Right_Details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex-grow: 1;
+}
+.ProductCard_Right_Details h1 {
+  font-size: 2.5rem;
+  color: #434344;
+}
+.ProductCard_Right_Details .price {
+  color: #6318af;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.ProductCard_Right_Details .condition {
+  color: #6318af;
+  text-transform: uppercase;
+  background-color: #a54bc033;
+  width: 3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+.ProductCard_Right_Details .details {
+  color: #6318af;
+  font-weight: bold;
+}
+.ProductCard_Right_Details > .description {
+  font-size: 0.9rem;
+  height: 4.56rem;
+}
+.ProductCard_Right_User {
+  height: 4.375rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ProductCard_Right_User_ProfilePhoto {
+  background-color: #6318af;
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.ProductCard_Right_User_ProfilePhoto > h1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.ProductCard_Right_User_Details > * {
+  margin: 0;
+  padding: 0;
+}
+.ProductCard_Right_User_Details {
+  height: 3rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.ProductCard_Right_User_Details > h1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.ProductCard_Right_Details > .description {
+  border: none;
+}
+.ProductCard_Right_User_Details .Listings_Count {
+  height: 1.375rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
+  width: 5.625rem;
+}
+.Listings_Count {
+  display: flex;
+  flex-direction: row;
+}
+.Listings_Count > * {
+  margin: 0;
+  padding: 0;
+}

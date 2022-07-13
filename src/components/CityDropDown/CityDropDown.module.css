@@ -1,0 +1,101 @@
+.CityDropDown {
+  width: 8.875rem;
+  height: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Select {
+  width: inherit;
+  height: fit-content;
+  color: #4d4d4d60;
+}
+.Select > button {
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  flex: 1;
+  font-size: 1.2rem;
+  color: #4d4d4d60;
+  cursor: pointer;
+  background-color: white;
+}
+
+.DropDownArrow {
+  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(143deg) brightness(97%)
+    contrast(96%);
+}
+.Open {
+  transform: rotate(180deg);
+}
+.options {
+  border: 1px solid black;
+}
+.Menu {
+  width: 19.625rem;
+  height: fit-content;
+  background-color: white;
+  position: absolute;
+  margin-top: 21rem;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  display: none;
+}
+.CityOption {
+  width: inherit;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.CityOption:hover {
+  background-color: #f1f1f1;
+  color: #9349de;
+}
+.Show {
+  display: flex;
+}
+.CitySearch {
+  border: 1px solid black;
+  width: 17.813rem;
+  height: 3rem;
+  margin: 0.9rem;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  display: flex;
+  gap: 0.3rem;
+}
+.CitySearch:focus-within {
+  border-color: #9349de;
+}
+.CitySearch > img {
+  width: 1.5rem;
+  box-sizing: border-box;
+  margin: 0.75rem 0rem 0.75rem 1.2rem;
+}
+.CitySearch > input {
+  margin: 0;
+  padding: 0;
+}
+.CitySearch > input::placeholder {
+  text-align: left;
+}

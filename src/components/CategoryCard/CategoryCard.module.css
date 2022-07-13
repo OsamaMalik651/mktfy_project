@@ -1,0 +1,33 @@
+.CategoryCard {
+  width: 50.5rem;
+  box-sizing: border-box;
+  height: 30rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 1.9rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.Slider_Heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.Slider_Cards {
+  display: flex;
+  gap: 1.4rem;
+}
+.CategoryCard_Cta {
+  width: initial;
+  box-sizing: border-box;
+  padding-right: 1.2rem;
+  color: #9349de;
+  text-align: right;
+  font-size: 0.9rem;
+}
+.CategoryCard_Cta > a {
+  color: #9349de;
+  text-decoration: none;
+}

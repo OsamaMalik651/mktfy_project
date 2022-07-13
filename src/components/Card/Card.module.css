@@ -1,0 +1,34 @@
+.Card {
+  width: 14.75rem;
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.6rem;
+  box-shadow: 0px 4px 15px #00000024;
+}
+.Card_Top {
+  width: 14.75rem;
+  height: 14.75rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.Card_Top img {
+  width: inherit;
+  height: inherit;
+  border-bottom: none;
+  border-radius: 0.6rem;
+}
+.Card_Bottom {
+  padding: 0rem 2.1rem;
+  gap: 0.6rem;
+}
+.Card_Bottom h1 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.Card_Bottom p {
+  font-size: 1.2rem;
+  color: #6318af;
+  font-weight: bold;
+}
