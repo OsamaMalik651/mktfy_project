@@ -1,0 +1,100 @@
+.MyListingCard {
+  width: 50.5rem;
+  height: 13.375rem;
+  box-shadow: 0px 1px 0px #00000024;
+  border-radius: 0.625rem;
+  background-color: white;
+  display: flex;
+  box-shadow: 0px 1px 5px #00000024;
+}
+.Image {
+  width: 21.875rem;
+  height: inherit;
+  border-radius: 10px 0px 0px 10px;
+}
+.Details > * {
+  margin: 0;
+  padding: 0;
+}
+.Details {
+  height: inherit;
+  border-radius: 0px 10px 10px 0px;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 1.25rem 0.938rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.875rem;
+}
+.Date {
+  padding-left: 0.312rem;
+  font-size: 0.875;
+  margin-bottom: 0.2rem;
+}
+.PendingTag {
+  background-color: #9349de33;
+  width: max-content;
+  height: 1.813rem;
+  box-sizing: border-box;
+  padding: 0.2rem 0.625rem;
+  border-radius: 4px;
+  color: #560f9f;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 1.2rem;
+}
+.SoldTag {
+  background-color: #6cc04b33;
+  width: max-content;
+  height: 1.813rem;
+  box-sizing: border-box;
+  padding: 0.2rem 0.625rem;
+  border-radius: 4px;
+  color: #6cc04b;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 1.2rem;
+}
+.Detail > * {
+  margin: 0;
+  padding: 0;
+}
+.Detail {
+  padding-left: 0.312rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.Heading {
+  font-size: 1.25rem;
+  color: black;
+}
+.Price {
+  color: #6318af;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.Condition {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.Circle {
+  width: 0.438rem;
+  height: 0.438rem;
+  background-color: #5b2bae;
+  border-radius: 50%;
+  display: inline-block;
+}
+.Purchases {
+  gap: 0.2rem;
+}
