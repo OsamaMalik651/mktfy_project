@@ -22,6 +22,7 @@ import MyPurchase from './Pages/MyPurchase';
 import MyPurchases from './components/MyPurchases/MyPurchases';
 import PickUpInformation from './components/PickUpInformation/PickUpInformation';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import FAQ from './Pages/FAQ';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route index element={<MyPurchases />} />
           <Route path='pickupInfo' element={<PickUpInformation />} />
         </Route>
+        <Route path="faq" element={<FAQ />} />
         <Route path="/success" element={<SuccessAnimation />} />
         <Route path="/terms-and-services" element={<TOS content="TOS" />} />
         <Route path="/privacy-policy" element={<TOS content="PP" />} />
