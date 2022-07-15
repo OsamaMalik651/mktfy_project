@@ -6,7 +6,6 @@ import { FAQS } from '../../dummyData/FAQ';
 import { useState } from 'react';
 import { ReactComponent as RightArrow } from "../../assets/arrow_right-24px.svg"
 const FAQ = () => {
-
     const [selectedQuestion, setSelectedQuestion] = useState(0);
     return (
         <div className={styles.FAQ}>
@@ -20,7 +19,7 @@ const FAQ = () => {
                         <div className={styles.FaqCard_Questions}>
                             {FAQS.map((faq, index) => {
                                 return (
-                                    <div className={styles.Faq_Question}
+                                    <div className={`${styles.Faq_Question} ${selectedQuestion === index ? styles.Active : ""}`}
                                         key={index}
                                         onClick={() => setSelectedQuestion(index)}
                                     >
@@ -36,12 +35,8 @@ const FAQ = () => {
                             })}
                         </div>
                         <div className={styles.FaqCard_Answers}>
-
                             <h1>{FAQS[selectedQuestion].question}</h1>
-
                             {FAQS[selectedQuestion].answer.map((answer, index) => <p key={index}>{answer}</p>)}
-
-
                         </div>
                     </div>
                 </div>

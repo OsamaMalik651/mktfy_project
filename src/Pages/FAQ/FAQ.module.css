@@ -53,6 +53,8 @@
 }
 .Faq_Question {
   background-color: #f7f7f7;
+  background-color: white;
+
   width: 34rem;
   height: 3.5rem;
   box-sizing: border-box;
@@ -89,4 +91,8 @@
   color: #2a2e43;
   margin-bottom: 1.25rem;
   line-height: 1.5rem;
+}
+.Active {
+  background-color: #f7f7f7;
+  border-right: none;
 }
