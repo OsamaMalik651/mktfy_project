@@ -39,7 +39,6 @@ function App() {
                 <Route index element={<ProductDetails />} />
                 <Route path="checkout" element={<PickUpInformation checkout={false} />} />
                 <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
-
               </Route>
             </Route>
           </Route>

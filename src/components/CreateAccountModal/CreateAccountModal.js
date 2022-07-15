@@ -5,6 +5,7 @@ import { Input } from '../Input/Input'
 import Button from '../Button/Button'
 import { useNavigate } from 'react-router-dom'
 import Select from '../Select/Select'
+const CITY_OPTIONS = ["Calgary", "Brooks", "Camrose"];
 
 const CreateAccountModal = ({ close }) => {
     let navigate = useNavigate();
@@ -51,7 +52,10 @@ const CreateAccountModal = ({ close }) => {
                             minLength="6"
                             type="select"
                         /> */}
-                        <Select label="City" />
+                        <Select label="City"
+                            options={CITY_OPTIONS}
+                            value=""
+                        />
                     </div>
                     <div className="CAFormRow">
                         <Input

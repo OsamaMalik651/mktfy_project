@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import Button from "../../components/Button/Button";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -9,11 +9,20 @@ import LoginModal from "../../components/LoginModal/LoginModal";
 import ForgetPWModal from "../../components/ForgetPasswordModal/ForgetPWModal";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import ResetPWModal from "../../components/ResetPasswordModal/ResetPWModal";
+import { AuthContext } from "../../context/auth-context";
+import { useContext } from "react";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
+    const { authenticated } = useContext(AuthContext);
 
     const navigate = useNavigate();
+
+    //Check if user is Authenticated upon page load
+    useEffect(() => {
+        authenticated && navigate("/home")
+    }, [authenticated])
+
     const changeLoginModalState = () => {
         setShowModal(true);
         navigate("/login");

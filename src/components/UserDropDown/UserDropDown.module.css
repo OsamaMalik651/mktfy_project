@@ -138,7 +138,7 @@
   height: 3rem;
   padding: 0rem 0.95rem;
 }
-.SignOut > a {
+.Signout_Button {
   display: flex;
   justify-content: space-between;
   text-decoration: none;

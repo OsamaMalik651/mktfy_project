@@ -46,13 +46,6 @@ const Select = (props) => {
                     className={`DropDownArrow ${showOptions ? "Open" : ""}`}
                     onClick={toggleOptions}
                 />
-                {/* <img
-                    src={DropdownArrow}
-                    alt="show password icon"
-                    onClick={toggleOptions}
-                /> */}
-
-
             </div>
             <ul className={`Menu ${props.className} ${showOptions ? "Show" : ""}`}>
                 {props.options.length > 0 &&

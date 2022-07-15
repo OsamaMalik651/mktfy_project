@@ -3,7 +3,6 @@ import Button from '../Button/Button';
 import closeIcon from "../../assets/icon_close.svg"
 import { Input } from '../Input/Input';
 import "./LoginModal.css"
-import Modal from '../Modal/Modal';
 import { Link, useNavigate, } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth-context';
@@ -19,9 +18,7 @@ const LoginModal = ({ close }) => {
     const { login } = useContext(AuthContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        // navigate("/success")
-        login()
+        login(email, password)
     }
     const handleClose = () => {
         close();

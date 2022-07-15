@@ -1,14 +1,17 @@
 
 import React, { useEffect, useRef, useState } from 'react'
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import DropDown from "../../assets/dropdown.svg";
 import ExitIcon from "../../assets/exit_to_app.svg"
+import { AuthContext } from '../../context/auth-context';
 
 import styles from "./UserDropDown.module.css"
 const UserDropDown = () => {
     let userName = "George Calson"
     const [show, setShow] = useState(false);
     const dropDown = useRef(null)
+    const { logout } = useContext(AuthContext);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOffClick);
@@ -88,12 +91,11 @@ const UserDropDown = () => {
                     </div>
                 </div>
 
-                <div className={styles.SignOut}>
-                    <Link to="/">
+                <div className={styles.SignOut} onClick={logout}>
+                    <div className={styles.Signout_Button}>
                         Sign Out
                         <img src={ExitIcon} alt="" />
-                    </Link>
-
+                    </div>
                 </div>
 
             </div>
