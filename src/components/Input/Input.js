@@ -12,7 +12,7 @@ export const Input = (props) => {
     },
     [inputValue],
   )
-  console.log(props.showError)
+
   return (
     <div className={`Input ${props.className} ${inputType === 'email' ? 'Email' : ''}`}>
       <div className="InputLabel">

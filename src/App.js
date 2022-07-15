@@ -23,46 +23,49 @@ import MyPurchases from './components/MyPurchases/MyPurchases';
 import PickUpInformation from './components/PickUpInformation/PickUpInformation';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import FAQ from './Pages/FAQ';
+import { AuthContextProvider } from './context/auth-context';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/*" exact element={<Login />} />
-        <Route path="/home" element={<Dashboard />}>
-          <Route index element={<Homepage />} />
-          <Route path="category" element={<Category />}>
-            <Route index element={<CategoryDetails />} />
-            <Route path="product" element={<Product />}>
-              <Route index element={<ProductDetails />} />
-              <Route path="checkout" element={<PickUpInformation checkout={false} />} />
-              <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
+    <AuthContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/*" exact element={<Login />} />
+          <Route path="/home" element={<Dashboard />}>
+            <Route index element={<Homepage />} />
+            <Route path="category" element={<Category />}>
+              <Route index element={<CategoryDetails />} />
+              <Route path="product" element={<Product />}>
+                <Route index element={<ProductDetails />} />
+                <Route path="checkout" element={<PickUpInformation checkout={false} />} />
+                <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
 
+              </Route>
             </Route>
           </Route>
-        </Route>
-        <Route path="/create-listing" element={<CreateListing />} >
-          <Route index element={<CreateListingCard />} />
-          <Route path="upload-images" element={<UploadImageModal />} />
-        </Route>
-        <Route path="/account" element={<Account />}>
-          <Route index element={<AccountInfo />} />
-          <Route path='change-password' element={<ChangePassword />} />
-        </Route>
-        <Route path="/my-listings" element={<MyListings />}>
-          <Route index element={<MyListingDetails data={Dummydata} />} />
-          <Route path='mylistingEdit' element={<MyListingEdit />} />
-        </Route>
-        <Route path="/my-purchases" element={<MyPurchase />}>
-          <Route index element={<MyPurchases />} />
-          <Route path='pickupInfo' element={<PickUpInformation />} />
-        </Route>
-        <Route path="faq" element={<FAQ />} />
-        <Route path="/success" element={<SuccessAnimation />} />
-        <Route path="/terms-and-services" element={<TOS content="TOS" />} />
-        <Route path="/privacy-policy" element={<TOS content="PP" />} />
-      </Routes>
-    </Router>
+          <Route path="/create-listing" element={<CreateListing />} >
+            <Route index element={<CreateListingCard />} />
+            <Route path="upload-images" element={<UploadImageModal />} />
+          </Route>
+          <Route path="/account" element={<Account />}>
+            <Route index element={<AccountInfo />} />
+            <Route path='change-password' element={<ChangePassword />} />
+          </Route>
+          <Route path="/my-listings" element={<MyListings />}>
+            <Route index element={<MyListingDetails data={Dummydata} />} />
+            <Route path='mylistingEdit' element={<MyListingEdit />} />
+          </Route>
+          <Route path="/my-purchases" element={<MyPurchase />}>
+            <Route index element={<MyPurchases />} />
+            <Route path='pickupInfo' element={<PickUpInformation />} />
+          </Route>
+          <Route path="faq" element={<FAQ />} />
+          <Route path="/success" element={<SuccessAnimation />} />
+          <Route path="/terms-and-services" element={<TOS content="TOS" />} />
+          <Route path="/privacy-policy" element={<TOS content="PP" />} />
+        </Routes>
+      </Router>
+    </AuthContextProvider>
   );
 }
 

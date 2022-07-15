@@ -5,6 +5,8 @@ import { Input } from '../Input/Input';
 import "./LoginModal.css"
 import Modal from '../Modal/Modal';
 import { Link, useNavigate, } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/auth-context';
 
 const LoginModal = ({ close }) => {
     const [email, setEmail] = useState("");
@@ -14,12 +16,17 @@ const LoginModal = ({ close }) => {
     const [showErrorText, setShowErrorText] = useState(false)
 
     let navigate = useNavigate()
-
+    const { login } = useContext(AuthContext)
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate("/success")
-    }
 
+        // navigate("/success")
+        login()
+    }
+    const handleClose = () => {
+        close();
+        navigate("/")
+    }
     // Make the below function reusable
     const checkEmailInput = (enteredEmail) => {
         var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -49,7 +56,7 @@ const LoginModal = ({ close }) => {
     return (
         <div className='LoginModal'>
             <div className="Modal_Top">
-                <button onClick={close}>
+                <button onClick={() => handleClose()}>
                     <img src={closeIcon} alt="close button" />
                 </button>
             </div>
