@@ -1,87 +1,115 @@
 import React from 'react'
 import closeIcon from "../../assets/icon_close.svg"
-import "./CreateAccountModal.css"
+import styles from "./CreateAccountModal.module.css"
 import { Input } from '../Input/Input'
 import Button from '../Button/Button'
 import { useNavigate } from 'react-router-dom'
 import Select from '../Select/Select'
-const CITY_OPTIONS = ["Calgary", "Brooks", "Camrose"];
+import { useState } from 'react'
+const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
 
 const CreateAccountModal = ({ close }) => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+
+
     let navigate = useNavigate();
+    const handleClose = () => {
+        close();
+        navigate("/")
+    }
+
+    const handleSubmit = () => {
+        const userDetails = { firstName, lastName, city, email, address, phone }
+        navigate("/createPassword", { state: { userDetails } })
+    }
+
+
     return (
-        <div className="CreateAccountModal">
-            <div className="CAModalBody">
-                <div className="CAModal_Top">
+        <div className={styles.CreateAccountModal}>
+            <div className={styles.CAModalBody}>
+                <div className={styles.CAModal_Top}>
                     <h1>Welcome to MKTFY</h1>
-                    <button onClick={close}>
+                    <button onClick={() => handleClose()}>
                         <img src={closeIcon} alt="close button" />
                     </button>
                 </div>
-                <div className="CAWelcomeMessage">
+                <div className={styles.CAWelcomeMessage}>
                     <p>It’s nice to meet you. At MKTFY you are able to buy, sell and donate awesome stuff to a community of awesome people. Please fill out the form below to get started.</p>
                 </div>
-                <div className="CAForm">
-                    <div className="CAFormRow">
-                        <Input
-                            label="First Name"
-                            placeholderText="Your first Name"
-                            required={true}
-                            maxLength="320"
-                            minLength="6"
-                        />
-                        <Input
-                            label="Street Address"
-                            placeholderText="Default Pickup Address"
-                            required={true}
-                            maxLength="320"
-                            minLength="6" />
-                    </div>
-                    <div className="CAFormRow">
-                        <Input
-                            label="Last Name"
-                            placeholderText="Your last Name"
-                            required={true}
-                            maxLength="320"
-                            minLength="6" />
-                        {/* <Input
-                            label="City"
-                            placeholderText="City"
-                            required={true}
-                            maxLength="320"
-                            minLength="6"
-                            type="select"
-                        /> */}
-                        <Select label="City"
-                            options={CITY_OPTIONS}
-                            value=""
-                        />
-                    </div>
-                    <div className="CAFormRow">
-                        <Input
-                            type="email"
-                            label="Email"
-                            placeholderText="Your email"
-                            required={true}
-                            maxLength="320"
-                            minLength="6"
-                        />
+                <div className={styles.CAForm}>
+                    <div className={styles.CAFormInputs}>
+                        <div className={styles.CAFormColumnLeft}>
+                            <Input
+                                label="First Name"
+                                placeholderText="Your first Name"
+                                required={true}
+                                maxLength="320"
+                                minLength="6"
+                                setValue={setFirstName}
+                                value={firstName}
+                            />
+                            <Input
+                                label="Last Name"
+                                placeholderText="Your last Name"
+                                required={true}
+                                maxLength="320"
+                                minLength="6"
+                                setValue={setLastName}
+                                value={lastName}
+                            />
+                            <Input
+                                type="email"
+                                label="Email"
+                                placeholderText="Your email"
+                                required={true}
+                                maxLength="320"
+                                minLength="6"
+                                setValue={setEmail}
+                                value={email}
+                            />
+                            <Input
+                                label="Phone"
+                                type="tel"
+                                placeholderText="+1 (000) 000 - 0000"
+                                required={true}
+                                maxLength="10"
+                                minLength="6"
+                                setValue={setPhone}
+                                value={phone}
+                            />
+                        </div>
+                        <div className={styles.CAFormColumnRight}>
+                            <Input
+                                label="Street Address"
+                                placeholderText="Default Pickup Address"
+                                required={true}
+                                maxLength="320"
+                                minLength="6"
+                                setValue={setAddress}
+                                value={address}
+                            />
+                            <Select
+                                label="City"
+                                name="City"
+                                options={CITY_OPTIONS}
+                                value={city}
+                                setValue={setCity}
+                                size="Small"
+                            />
+                            <div className={styles.LoginButton}>
+                                <Button color="#FFBA00" disabled={false} onClick={handleSubmit}>
+                                    Login
+                                </Button>
+                            </div>
 
+                        </div>
                     </div>
-                    <div className="CAFormRow">
-                        <Input
-                            label="Phone"
-                            type="tel"
-                            placeholderText="+1 (000) 000 - 0000"
-                            required={true}
-                            maxLength="9"
-                            minLength="6"
-                        />
-                        <Button color="#FFBA00" disabled={false} onClick={() => navigate("/createPassword")}>
-                            Login
-                        </Button>
-                    </div>
-                    <div className="CAPrivacyMessage">
+                    <div className={styles.CAPrivacyMessage}>
                         <p>
                             At MKTFY we respect your privacy and do not tolerate spam, and will never sell, rent, lease or give away your information. We only buy, sell or donate your stuff here at MKTFY.
                         </p>

@@ -4,10 +4,10 @@ import Button from '../Button/Button'
 import { Input } from '../Input/Input'
 import Select from '../Select/Select'
 import styles from "./AccountInfo.module.css"
-const CITY_OPTIONS = ["Calgary", "Brooks", "Camrose"];
+const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
 
 const AccountInfo = () => {
-    const [city, setCity] = useState("Select City");
+    const [city, setCity] = useState("");
     return (
         <div className={styles.AccountInfo}>
             <div className={styles.BreadCrumb_Section}>
@@ -67,7 +67,7 @@ const AccountInfo = () => {
                             setValue={setCity}
                             options={CITY_OPTIONS}
                             value={city}
-                            className={styles.Small}
+                            size="Small"
                         />
                     </div>
                     <div className={styles.button}>

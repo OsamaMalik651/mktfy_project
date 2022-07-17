@@ -6,13 +6,22 @@ import "./LoginModal.css"
 import { Link, useNavigate, } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth-context';
+import Modal from '../Modal/Modal';
+import ErrorModal from '../ErrorModal/ErrorModal';
+import { checkPasswordInput } from '../../utils';
+import { useCallback } from 'react';
 
 const LoginModal = ({ close }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [validEmailInput, setValidEmailInput] = useState(false);
     const [validPasswordInput, setValidPasswordInput] = useState(false);
-    const [showErrorText, setShowErrorText] = useState(false)
+    const [showEmailErrorText, setShowEmailErrorText] = useState(false)
+    const [showPasswordErrorText, setShowPasswordErrorText] = useState(false)
+
+
+
+    const { error, setError, showError, setShowError } = useContext(AuthContext);
 
     let navigate = useNavigate()
     const { login } = useContext(AuthContext)
@@ -28,28 +37,35 @@ const LoginModal = ({ close }) => {
     const checkEmailInput = (enteredEmail) => {
         var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         if (enteredEmail.length > 0 && enteredEmail.match(emailPattern)) {
-            setShowErrorText(false)
+            setShowEmailErrorText(false)
             setEmail(enteredEmail)
             setValidEmailInput(true)
         }
         else if (enteredEmail.length === 0) {
-            setShowErrorText(false)
+            setShowEmailErrorText(false)
             setValidEmailInput(false)
         }
         else {
-            setShowErrorText(true)
+            setShowEmailErrorText(true)
             setValidEmailInput(false)
         }
     };
 
-    const checkPasswordInput = (enteredPassword) => {
-        if (enteredPassword.length >= 6) {
+    const checkPassword = (enteredPassword) => {
+        if (enteredPassword.length === 0) {
+            setShowPasswordErrorText(false)
+            return
+        }
+        if (enteredPassword.length > 0 && checkPasswordInput(enteredPassword)) {
             setPassword(enteredPassword)
             setValidPasswordInput(true)
+            setShowPasswordErrorText(false)
         } else {
             setValidPasswordInput(false)
+            enteredPassword.length > 0 && setShowPasswordErrorText(true)
         }
     }
+
     return (
         <div className='LoginModal'>
             <div className="Modal_Top">
@@ -69,19 +85,22 @@ const LoginModal = ({ close }) => {
                         required={true}
                         maxLength="320"
                         minLength="6"
-                        showError={showErrorText}
+                        showError={showEmailErrorText}
+                        error={"Enter email in valid format"}
                         value={email}
+                        logIn={true}
                     />
                     <Input
                         type="password"
                         label="Password"
                         placeholderText="Your password"
-                        setValue={checkPasswordInput}
+                        setValue={checkPassword}
                         onChange={(e) => setPassword(e.target.value)}
-                        minLength="6"
+                        minLength="8"
                         value={password}
+                        error={"Password should contain 1 uppercase letter, 1 number and minimum 8 characters"}
+                        showError={showPasswordErrorText}
                     />
-
                 </div>
 
                 <div className="ForgotPassword">
@@ -93,6 +112,9 @@ const LoginModal = ({ close }) => {
                     </Button>
                 </div>
             </div>
+            {showError &&
+                <ErrorModal error={error} setShowError={setShowError} setError={setError} />
+            }
         </div>
 
     )

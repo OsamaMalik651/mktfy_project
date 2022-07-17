@@ -9,6 +9,9 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
 
     const [authenticated, setAuthenticated] = useState(false)
+    const [singUpCompleted, setSignUpCompleted] = useState(false)
+    const [error, setError] = useState({ title: "", description: "" })
+    const [showError, setShowError] = useState(false)
 
     // configure Auth0
     const webAuth = new auth0js.WebAuth({
@@ -24,8 +27,6 @@ export const AuthContextProvider = ({ children }) => {
         let decode;
         if (access_token) {
             sessionStorage.setItem("access_token", access_token);
-            decode = jwt_decode(access_token);
-            // console.log("decode", decode);
             setAuthenticated(true)
         }
     }, [])
@@ -35,14 +36,14 @@ export const AuthContextProvider = ({ children }) => {
             {
                 responseType: "token",
                 realm: "Username-Password-Authentication",
-                // email: "osama.malik013+test1@gmail.com",
-                // password: "Test@11223334",
                 email: email,
                 password: password,
                 redirectUri: "http://localhost:3000/",
             },
             function (error) {
                 console.log(error)
+                setError({ title: error.code, description: error.description })
+                setShowError(true)
             }
         )
     }
@@ -52,8 +53,40 @@ export const AuthContextProvider = ({ children }) => {
         sessionStorage.removeItem("access_token")
         webAuth.logout({ returnTo: "http://localhost:3000/" })
     }
+
+    const signUp = (userDetails) => {
+        const { firstName, lastName, city, email, address, phone, password } = userDetails
+        webAuth.signup(
+            {
+                connection: "Username-Password-Authentication",
+                email: email,
+                password: password,
+                username: firstName + "_" + lastName,
+                given_name: firstName,
+                family_name: lastName,
+                name: firstName + "_" + lastName,
+            },
+            async function (error, res) {
+                if (error) {
+                    console.log(error)
+                    setError({ title: error.code, description: error.description })
+                    setShowError(true)
+                } else {
+                    console.log(res)
+                    const userDetails = {
+                        firstName, lastName, email, city, address, phone
+                    }
+
+                    sessionStorage.setItem("userDetails", JSON.stringify(userDetails))
+                    login(email, password)
+                    setSignUpCompleted(true)
+
+                }
+            }
+        );
+    }
     return (
-        <AuthContext.Provider value={{ login, authenticated, logout }}>
+        <AuthContext.Provider value={{ login, authenticated, logout, signUp, singUpCompleted, error, setError, showError, setShowError }}>
             {children}
         </AuthContext.Provider>
     )

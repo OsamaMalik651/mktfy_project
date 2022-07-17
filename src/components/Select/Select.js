@@ -26,7 +26,7 @@ const Select = (props) => {
         setShowOptions(!showOptions);
     };
     return (
-        <div ref={select} className={`Input ${props.className}`}>
+        <div ref={select} className={`Input ${props.size}`}>
             <div className="InputLabel">
                 <label htmlFor={props.name} >
                     {props.name}
@@ -37,7 +37,7 @@ const Select = (props) => {
                     type="button"
                     aria-haspopup="listbox"
                     aria-expanded={toggleOptions}
-                    className=""
+                    className={props.value === "" ? "placeholder" : "options"}
                     onClick={toggleOptions}
                 >
                     {props.value || props.options[0]}
@@ -49,7 +49,7 @@ const Select = (props) => {
             </div>
             <ul className={`Menu ${props.className} ${showOptions ? "Show" : ""}`}>
                 {props.options.length > 0 &&
-                    props.options.map((option, index) => {
+                    props.options.slice(1).map((option, index) => {
                         return (
                             <li
                                 className=""
