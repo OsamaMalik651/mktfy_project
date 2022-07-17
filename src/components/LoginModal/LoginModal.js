@@ -25,6 +25,7 @@ const LoginModal = ({ close }) => {
 
     let navigate = useNavigate()
     const { login } = useContext(AuthContext)
+
     const handleSubmit = (e) => {
         e.preventDefault()
         login(email, password)
