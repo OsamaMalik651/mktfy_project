@@ -5,9 +5,7 @@ import styles from "./Account.module.css"
 const Account = () => {
     return (
         <div className={styles.Account}>
-            <Layout >
-                <Outlet />
-            </Layout>
+            <Outlet />
         </div >
 
     )

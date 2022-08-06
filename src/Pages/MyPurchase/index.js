@@ -6,9 +6,7 @@ import styles from "./MyPurchase.module.css"
 const MyPurchase = () => {
     return (
         <div className={styles.MyPurchase}>
-            <Layout>
-                <Outlet />
-            </Layout>
+            <Outlet />
         </div>
     )
 }

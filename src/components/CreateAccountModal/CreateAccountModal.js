@@ -3,7 +3,7 @@ import closeIcon from "../../assets/icon_close.svg"
 import styles from "./CreateAccountModal.module.css"
 import { Input } from '../Input/Input'
 import Button from '../Button/Button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import Select from '../Select/Select'
 import { useState } from 'react'
 const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
@@ -15,11 +15,12 @@ const CreateAccountModal = ({ close }) => {
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
     const [city, setCity] = useState("")
+    const { setShowModal } = useOutletContext();
 
 
     let navigate = useNavigate();
     const handleClose = () => {
-        close();
+        setShowModal(false);
         navigate("/")
     }
 

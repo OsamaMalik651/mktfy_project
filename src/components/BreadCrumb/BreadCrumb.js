@@ -7,6 +7,7 @@ const BreadCrumb = () => {
     const location = useLocation();
     const breadCrumbView = () => {
         const pathnames = location.pathname.split("/").filter((item) => item);
+        console.log(pathnames);
         return (
             <div>
                 <Breadcrumb separator={

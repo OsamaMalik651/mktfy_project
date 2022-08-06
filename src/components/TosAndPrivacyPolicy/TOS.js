@@ -22,7 +22,7 @@ const TOS = ({ content }) => {
                 </div>
             </div>
             <div className="BackButton">
-                <button onClick={() => navigate(-1)}>
+                <button onClick={() => window.close()}>
                     <img src={backIcon} alt="close button" />
                 </button>
                 <h1>{content === "TOS" ? TOS.heading : PrivacyPolicy.heading}</h1>

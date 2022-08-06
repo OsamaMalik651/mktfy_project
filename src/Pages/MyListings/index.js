@@ -7,9 +7,7 @@ const MyListings = () => {
 
     return (
         <div className={styles.MyListings}>
-            <Layout>
-                <Outlet />
-            </Layout>
+            <Outlet />
         </div>
     )
 }

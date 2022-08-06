@@ -10,13 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
 
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useOutletContext } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth-context'
 import PasswordInput from '../PasswordInput/PasswordInput'
 import { checkLength, checkNumberPresent, checkPasswordInput, checkUpperCase } from '../../utils'
 
-const ResetPWModal = ({ close, create }) => {
+const ResetPWModal = ({ create }) => {
 
     const location = useLocation()
     let navigate = useNavigate();
@@ -26,6 +26,7 @@ const ResetPWModal = ({ close, create }) => {
     const [checkedTOS, setCheckedTOS] = useState(false)
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
+    const { setShowModal } = useOutletContext();
 
     //Check for signup to be completed
     useEffect(() => {
@@ -47,6 +48,10 @@ const ResetPWModal = ({ close, create }) => {
         const userDetails = { ...location.state.userDetails, password }
         signUp(userDetails)
     }
+    const handleClose = () => {
+        setShowModal(false);
+        navigate("/")
+    }
     return (
         <Modal>
             <div className='ResetPWModal'>
@@ -54,7 +59,7 @@ const ResetPWModal = ({ close, create }) => {
                     <button onClick={() => navigate(-1)}>
                         <img src={backIcon} alt="close button" />
                     </button>
-                    <button onClick={close}>
+                    <button onClick={handleClose}>
                         <img src={closeIcon} alt="close button" />
                     </button>
                 </div>
@@ -91,7 +96,7 @@ const ResetPWModal = ({ close, create }) => {
                             <button onClick={() => setCheckedTOS(!checkedTOS)}>
                                 <FontAwesomeIcon icon={faSquareCheck} className="CheckIcon" color={checkedTOS ? "#9349DE" : "#EBE8E8"} />
                             </button>
-                            <label htmlFor="tos">By checking this box, you agree to our <Link to="/terms-and-services">Terms of service</Link> and our <Link to="/privacy-policy">Privacy Policy</Link></label><br></br>
+                            <label htmlFor="tos">By checking this box, you agree to our <Link to="/terms-and-services" target={"_blank"}>Terms of service</Link> and our <Link to="/privacy-policy" target={"_blank"}>Privacy Policy</Link></label><br></br>
                         </div>
                     }
                     <div className="Button" >

@@ -15,7 +15,7 @@ const MyListingDetails = ({ data }) => {
         setActiveItems(false)
         setSoldItems(true)
     }
-    // console.log(data.cars[0])
+
     return (
         <div className={styles.MyListingDetails}>
             <div className={styles.BreadCrumb_Section}>
@@ -35,7 +35,7 @@ const MyListingDetails = ({ data }) => {
             {activeItems && <div className={styles.ListingsDisplay}>
                 {/* Show pending listing */}
                 <div className={styles.PendingItems}>
-                    <Link to="/my-listings/mylistingedit">
+                    <Link to="/home/my-listings/mylistingedit">
                         <MyListingCard state="pending" Carddata={data.cars[0]} />
                     </Link>
 

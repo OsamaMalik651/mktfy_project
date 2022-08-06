@@ -3,23 +3,23 @@ import Button from '../Button/Button';
 import closeIcon from "../../assets/icon_close.svg"
 import { Input } from '../Input/Input';
 import "./LoginModal.css"
-import { Link, useNavigate, } from 'react-router-dom';
+import { Link, useNavigate, useOutletContext, } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth-context';
-import Modal from '../Modal/Modal';
 import ErrorModal from '../ErrorModal/ErrorModal';
 import { checkPasswordInput } from '../../utils';
-import { useCallback } from 'react';
 
 const LoginModal = ({ close }) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("osama.malik01+test1@gmail.com");
+    const [password, setPassword] = useState("Test@11223334");
     const [validEmailInput, setValidEmailInput] = useState(false);
     const [validPasswordInput, setValidPasswordInput] = useState(false);
     const [showEmailErrorText, setShowEmailErrorText] = useState(false)
     const [showPasswordErrorText, setShowPasswordErrorText] = useState(false)
 
+    const { setShowModal } = useOutletContext();
 
+    console.log("login modal rendered")
 
     const { error, setError, showError, setShowError } = useContext(AuthContext);
 
@@ -31,7 +31,7 @@ const LoginModal = ({ close }) => {
         login(email, password)
     }
     const handleClose = () => {
-        close();
+        setShowModal(false);
         navigate("/")
     }
     // Make the below function reusable
@@ -108,7 +108,9 @@ const LoginModal = ({ close }) => {
                     <Link to="/forgetpassword">I forgot my password</Link>
                 </div>
                 <div className="Button">
-                    <Button type={"submit"} onClick={handleSubmit} color="#FFBA00" disabled={!(validEmailInput && validPasswordInput)}>
+                    <Button type={"submit"} onClick={handleSubmit} color="#FFBA00"
+                    // disabled={!(validEmailInput && validPasswordInput)}
+                    >
                         Login
                     </Button>
                 </div>

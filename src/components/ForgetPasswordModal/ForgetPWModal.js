@@ -5,14 +5,16 @@ import backIcon from "../../assets/icon_back.svg"
 import { Input } from '../Input/Input'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate, useOutletContext } from 'react-router-dom'
 const ForgetPWModal = ({ close, modalType }) => {
     const [email, setEmail] = useState("");
     const [verificationCode, setVerificationCode] = useState("")
     const [validEmailInput, setValidEmailInput] = useState(false);
     const [showErrorText, setShowErrorText] = useState(false)
+    const { setShowModal } = useOutletContext();
 
     let navigate = useNavigate();
+    console.log(modalType)
 
     // Make the below function reusable
     const checkEmailInput = (enteredEmail) => {
@@ -38,6 +40,10 @@ const ForgetPWModal = ({ close, modalType }) => {
     const handleVerificationCodeSubmit = () => {
         navigate("/createpassword")
     }
+    const handleClose = () => {
+        setShowModal(false);
+        navigate("/")
+    }
     return (
 
         <div className='ForgetPWModal'>
@@ -45,7 +51,7 @@ const ForgetPWModal = ({ close, modalType }) => {
                 <button onClick={() => navigate(-1)}>
                     <img src={backIcon} alt="close button" />
                 </button>
-                <button onClick={close}>
+                <button onClick={handleClose}>
                     <img src={closeIcon} alt="close button" />
                 </button>
             </div>

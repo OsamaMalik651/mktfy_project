@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/LoginPage';
 import SuccessAnimation from "./components/SuccessAnimation/SuccessAnimation";
@@ -24,12 +24,17 @@ import PickUpInformation from './components/PickUpInformation/PickUpInformation'
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import FAQ from './Pages/FAQ';
 import { AuthContextProvider } from './context/auth-context';
+import LoginModal from './components/LoginModal/LoginModal';
+import ForgetPWModal from './components/ForgetPasswordModal/ForgetPWModal';
+import CreateAccountModal from './components/CreateAccountModal/CreateAccountModal';
+import ResetPWModal from './components/ResetPasswordModal/ResetPWModal';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <Routes>
+        {/* <Routes>
           <Route path="/*" exact element={<Login />} />
           <Route path="/home" element={<Dashboard />}>
             <Route index element={<Homepage />} />
@@ -62,6 +67,50 @@ function App() {
           <Route path="/success" element={<SuccessAnimation />} />
           <Route path="/terms-and-services" element={<TOS content="TOS" />} />
           <Route path="/privacy-policy" element={<TOS content="PP" />} />
+        </Routes> */}
+        <Routes>
+          <Route path="/" exact element={<Login />}>
+            <Route path="login" element={<LoginModal />} />
+            <Route path="forgetpassword" element={<ForgetPWModal modalType="forget" />} />
+            <Route path="resetpassword" element={<ForgetPWModal modalType="reset" />} />
+            <Route path="signup" element={<CreateAccountModal />} />
+            <Route path="createPassword" element={<ResetPWModal create={true} />} />
+          </Route>
+          <Route path="home" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }>
+            <Route index element={<Homepage />} />
+            <Route path="category" element={<Category />}>
+              <Route index element={<CategoryDetails />} />
+              <Route path="product" element={<Product />}>
+                <Route index element={<ProductDetails />} />
+                <Route path="checkout" element={<PickUpInformation checkout={false} />} />
+                <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
+              </Route>
+            </Route>
+            <Route path="create-listing" element={<CreateListing />} >
+              <Route index element={<CreateListingCard />} />
+              <Route path="upload-images" element={<UploadImageModal />} />
+            </Route>
+            <Route path="account" element={<Account />}>
+              <Route index element={<AccountInfo />} />
+              <Route path='change-password' element={<ChangePassword />} />
+            </Route>
+            <Route path="my-listings" element={<MyListings />}>
+              <Route index element={<MyListingDetails data={Dummydata} />} />
+              <Route path='mylistingEdit' element={<MyListingEdit />} />
+            </Route>
+            <Route path="my-purchases" element={<MyPurchase />}>
+              <Route index element={<MyPurchases />} />
+              <Route path='pickupInfo' element={<PickUpInformation />} />
+            </Route>
+            <Route path="faq" element={<FAQ />} />
+          </Route>
+          <Route path="/terms-and-services" element={<TOS content="TOS" />} />
+          <Route path="/privacy-policy" element={<TOS content="PP" />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
     </AuthContextProvider>

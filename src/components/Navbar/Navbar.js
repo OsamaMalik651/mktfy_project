@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./Navbar.module.css"
-import logo from "../../assets/mktfy_logo.svg"
+import logo from "../../assets/logo.svg"
 import AddCircle from "../../assets/Add_circle.svg"
 import MenuIcon from "../../assets/menu-icon.svg"
 import SearchBar from '../SearchBar/SearchBar'
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <div className={styles.NavbarTopCreateListing}>
                     <Button
                         className={styles.Button}
-                        onClick={() => navigate("/create-listing")}>
+                        onClick={() => navigate("/home/create-listing")}>
                         <img src={AddCircle} alt="" />
                         Create Listing</Button>
                 </div>

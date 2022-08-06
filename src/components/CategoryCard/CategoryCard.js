@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ImageCard from '../ImageCard/ImageCard'
 import styles from "./CategoryCard.module.css"
 
@@ -16,7 +17,7 @@ const CategoryCard = () => {
                 {array}
             </div>
             <div className={styles.CategoryCard_Cta}>
-                <a href='/home/category'>Explore Now</a>
+                <Link to='/home/category'>Explore Now</Link>
             </div>
         </div>
     )

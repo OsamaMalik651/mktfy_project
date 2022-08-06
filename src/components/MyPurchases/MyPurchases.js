@@ -16,8 +16,8 @@ const MyPurchases = () => {
             </div>
             <div className={styles.MyPurchase_Section}>
                 {/* Remember to put prop purchase={true} to indicate the card is being used to display My Purchases */}
-                <MyListingCard purchase={true} onClick={() => { navigate('/my-purchases/pickupInfo') }} />
-                <MyListingCard purchase={true} onClick={() => { navigate('/my-purchases/pickupInfo') }} />
+                <MyListingCard purchase={true} onClick={() => { navigate('/home/my-purchases/pickupInfo') }} />
+                <MyListingCard purchase={true} onClick={() => { navigate('/home/my-purchases/pickupInfo') }} />
             </div>
         </div>
     )

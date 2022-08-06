@@ -50,22 +50,22 @@ const UserDropDown = () => {
                                 <b>Settings</b>
                             </li>
                             <li>
-                                <Link to="/account">
+                                <Link to="/home/account">
                                     Account Information
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/account/change-password">
+                                <Link to="/home/account/change-password">
                                     Change Password
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-purchases">
+                                <Link to="/home/my-purchases">
                                     My Purchases
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-listings">
+                                <Link to="/home/my-listings">
                                     My Listings
                                     <div className={styles.Count}>2</div>
                                 </Link>
@@ -78,12 +78,12 @@ const UserDropDown = () => {
                                 <b>Help</b>
                             </li>
                             <li>
-                                <Link to="/faq">
+                                <Link to="/home/faq">
                                     FAQ
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-listings">
+                                <Link to="#">
                                     Contact Us
                                 </Link>
                             </li>

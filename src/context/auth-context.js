@@ -13,6 +13,7 @@ export const AuthContextProvider = ({ children }) => {
     const [singUpCompleted, setSignUpCompleted] = useState(false)
     const [error, setError] = useState({ title: "", description: "" })
     const [showError, setShowError] = useState(false)
+    const [user, setUser] = useState({});
 
     // configure Auth0
     const webAuth = new auth0js.WebAuth({
@@ -28,16 +29,17 @@ export const AuthContextProvider = ({ children }) => {
         if (access_token) {
             sessionStorage.setItem("access_token", access_token);
             setAuthenticated(true)
-            webAuth.client.userInfo(access_token, (error, res) => {
+            webAuth.client.userInfo(access_token, (error, user) => {
 
                 if (error) return console.log(error)
 
                 let newUserDetails = JSON.parse(sessionStorage.getItem("userDetails"))
                 if (newUserDetails) {
                     //create user in backend
-                    createUser(res.sub, newUserDetails)
+                    createUser(user.sub, newUserDetails)
                 } else {
                     //retrive user details from backend
+                    getUserInfo(user.sub)
                 }
             })
         }
@@ -98,17 +100,9 @@ export const AuthContextProvider = ({ children }) => {
 
     //Create user at the backend
     const createUser = async (sub, userDetails) => {
-        //Uncomment this after lexi makes the needed changes in the schema
-        // const data = {...userDetails, id:sub}
 
-        //Remove this when above line of code is uncommented
-        const data = {
-            id: sub,
-            firstName: userDetails.firstName,
-            lastName: userDetails.lastName,
-            email: userDetails.email,
-            phone: userDetails.phone
-        }
+        const data = { ...userDetails, id: sub }
+
         try {
             const res = await axios.post("/User", data);
             sessionStorage.removeItem("userDetails")
@@ -117,8 +111,17 @@ export const AuthContextProvider = ({ children }) => {
             console.log(error)
         }
     }
+    //Get User info
+    const getUserInfo = async (id) => {
+        try {
+            const user = await axios.get(`/User/${id}`);
+            setUser(user);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
-        <AuthContext.Provider value={{ login, authenticated, logout, signUp, singUpCompleted, error, setError, showError, setShowError }}>
+        <AuthContext.Provider value={{ login, authenticated, setAuthenticated, logout, signUp, singUpCompleted, user, error, setError, showError, setShowError }}>
             {children}
         </AuthContext.Provider>
     )
