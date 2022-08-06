@@ -9,38 +9,38 @@ const FAQ = () => {
     const [selectedQuestion, setSelectedQuestion] = useState(0);
     return (
         <div className={styles.FAQ}>
-            <Layout>
-                <div className={styles.FaqContainer}>
-                    <BreadCrumb />
-                    <div className={styles.headingSection}>
-                        <h1>Frequently Asked Questions</h1>
-                    </div>
-                    <div className={styles.FaqCard}>
-                        <div className={styles.FaqCard_Questions}>
-                            {FAQS.map((faq, index) => {
-                                return (
-                                    <div className={`${styles.Faq_Question} ${selectedQuestion === index ? styles.Active : ""}`}
-                                        key={index}
-                                        onClick={() => setSelectedQuestion(index)}
+
+            <div className={styles.FaqContainer}>
+                <BreadCrumb />
+                <div className={styles.headingSection}>
+                    <h1>Frequently Asked Questions</h1>
+                </div>
+                <div className={styles.FaqCard}>
+                    <div className={styles.FaqCard_Questions}>
+                        {FAQS.map((faq, index) => {
+                            return (
+                                <div className={`${styles.Faq_Question} ${selectedQuestion === index ? styles.Active : ""}`}
+                                    key={index}
+                                    onClick={() => setSelectedQuestion(index)}
+                                >
+                                    <p
                                     >
-                                        <p
-                                        >
-                                            {faq.question}
-                                        </p>
-                                        <RightArrow />
+                                        {faq.question}
+                                    </p>
+                                    <RightArrow />
 
-                                    </div>
+                                </div>
 
-                                );
-                            })}
-                        </div>
-                        <div className={styles.FaqCard_Answers}>
-                            <h1>{FAQS[selectedQuestion].question}</h1>
-                            {FAQS[selectedQuestion].answer.map((answer, index) => <p key={index}>{answer}</p>)}
-                        </div>
+                            );
+                        })}
+                    </div>
+                    <div className={styles.FaqCard_Answers}>
+                        <h1>{FAQS[selectedQuestion].question}</h1>
+                        {FAQS[selectedQuestion].answer.map((answer, index) => <p key={index}>{answer}</p>)}
                     </div>
                 </div>
-            </Layout>
+            </div>
+
         </div>
     )
 }

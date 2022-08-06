@@ -5,9 +5,7 @@ import styles from "./CreateListing.module.css"
 const CreateListing = () => {
     return (
         <div className={styles.CreateListing}>
-            <Layout>
-                <Outlet />
-            </Layout>
+            <Outlet />
         </div>
     )
 }

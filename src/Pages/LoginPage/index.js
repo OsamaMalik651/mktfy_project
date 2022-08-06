@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import Button from "../../components/Button/Button";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 
 import "./Login.css";
 import Modal from "../../components/Modal/Modal";
@@ -9,11 +9,20 @@ import LoginModal from "../../components/LoginModal/LoginModal";
 import ForgetPWModal from "../../components/ForgetPasswordModal/ForgetPWModal";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import ResetPWModal from "../../components/ResetPasswordModal/ResetPWModal";
+import { AuthContext } from "../../context/auth-context";
+import { useContext } from "react";
 
 const Login = () => {
     const [showModal, setShowModal] = useState(false);
+    const { authenticated } = useContext(AuthContext);
 
     const navigate = useNavigate();
+
+    //Check if user is Authenticated upon page load
+    useEffect(() => {
+        authenticated && navigate("/home")
+    }, [authenticated])
+
     const changeLoginModalState = () => {
         setShowModal(true);
         navigate("/login");
@@ -40,13 +49,7 @@ const Login = () => {
             </div>
             {showModal &&
                 <Modal>
-                    <Routes>
-                        <Route path="/login" element={<LoginModal close={() => setShowModal(!showModal)} />} />
-                        <Route path="/forgetpassword" element={<ForgetPWModal modalType="forget" close={() => setShowModal(!showModal)} />} />
-                        <Route path="/resetpassword" element={<ForgetPWModal modalType="reset" close={() => setShowModal(!showModal)} />} />
-                        <Route path="/signup" element={<CreateAccountModal close={() => setShowModal(!showModal)} />} />
-                        <Route path="/createPassword" element={<ResetPWModal create={true} close={() => setShowModal(!showModal)} />} />
-                    </Routes>
+                    {<Outlet context={{ setShowModal }} />}
                 </Modal>
             }
             <div className="footer__text">

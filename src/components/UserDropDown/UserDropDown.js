@@ -1,14 +1,17 @@
 
 import React, { useEffect, useRef, useState } from 'react'
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import DropDown from "../../assets/dropdown.svg";
 import ExitIcon from "../../assets/exit_to_app.svg"
+import { AuthContext } from '../../context/auth-context';
 
 import styles from "./UserDropDown.module.css"
 const UserDropDown = () => {
     let userName = "George Calson"
     const [show, setShow] = useState(false);
     const dropDown = useRef(null)
+    const { logout } = useContext(AuthContext);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOffClick);
@@ -47,22 +50,22 @@ const UserDropDown = () => {
                                 <b>Settings</b>
                             </li>
                             <li>
-                                <Link to="/account">
+                                <Link to="/home/account">
                                     Account Information
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/account/change-password">
+                                <Link to="/home/account/change-password">
                                     Change Password
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-purchases">
+                                <Link to="/home/my-purchases">
                                     My Purchases
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-listings">
+                                <Link to="/home/my-listings">
                                     My Listings
                                     <div className={styles.Count}>2</div>
                                 </Link>
@@ -75,12 +78,12 @@ const UserDropDown = () => {
                                 <b>Help</b>
                             </li>
                             <li>
-                                <Link to="/faq">
+                                <Link to="/home/faq">
                                     FAQ
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/my-listings">
+                                <Link to="#">
                                     Contact Us
                                 </Link>
                             </li>
@@ -88,12 +91,11 @@ const UserDropDown = () => {
                     </div>
                 </div>
 
-                <div className={styles.SignOut}>
-                    <Link to="/">
+                <div className={styles.SignOut} onClick={logout}>
+                    <div className={styles.Signout_Button}>
                         Sign Out
                         <img src={ExitIcon} alt="" />
-                    </Link>
-
+                    </div>
                 </div>
 
             </div>

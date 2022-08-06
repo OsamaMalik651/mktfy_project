@@ -3,53 +3,74 @@ import Button from '../Button/Button';
 import closeIcon from "../../assets/icon_close.svg"
 import { Input } from '../Input/Input';
 import "./LoginModal.css"
-import Modal from '../Modal/Modal';
-import { Link, useNavigate, } from 'react-router-dom';
+import { Link, useNavigate, useOutletContext, } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/auth-context';
+import ErrorModal from '../ErrorModal/ErrorModal';
+import { checkPasswordInput } from '../../utils';
 
 const LoginModal = ({ close }) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("osama.malik01+test1@gmail.com");
+    const [password, setPassword] = useState("Test@11223334");
     const [validEmailInput, setValidEmailInput] = useState(false);
     const [validPasswordInput, setValidPasswordInput] = useState(false);
-    const [showErrorText, setShowErrorText] = useState(false)
+    const [showEmailErrorText, setShowEmailErrorText] = useState(false)
+    const [showPasswordErrorText, setShowPasswordErrorText] = useState(false)
+
+    const { setShowModal } = useOutletContext();
+
+    console.log("login modal rendered")
+
+    const { error, setError, showError, setShowError } = useContext(AuthContext);
 
     let navigate = useNavigate()
+    const { login } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate("/success")
+        login(email, password)
     }
-
+    const handleClose = () => {
+        setShowModal(false);
+        navigate("/")
+    }
     // Make the below function reusable
     const checkEmailInput = (enteredEmail) => {
         var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         if (enteredEmail.length > 0 && enteredEmail.match(emailPattern)) {
-            setShowErrorText(false)
+            setShowEmailErrorText(false)
             setEmail(enteredEmail)
             setValidEmailInput(true)
         }
         else if (enteredEmail.length === 0) {
-            setShowErrorText(false)
+            setShowEmailErrorText(false)
             setValidEmailInput(false)
         }
         else {
-            setShowErrorText(true)
+            setShowEmailErrorText(true)
             setValidEmailInput(false)
         }
     };
 
-    const checkPasswordInput = (enteredPassword) => {
-        if (enteredPassword.length >= 6) {
+    const checkPassword = (enteredPassword) => {
+        if (enteredPassword.length === 0) {
+            setShowPasswordErrorText(false)
+            return
+        }
+        if (enteredPassword.length > 0 && checkPasswordInput(enteredPassword)) {
             setPassword(enteredPassword)
             setValidPasswordInput(true)
+            setShowPasswordErrorText(false)
         } else {
             setValidPasswordInput(false)
+            enteredPassword.length > 0 && setShowPasswordErrorText(true)
         }
     }
+
     return (
         <div className='LoginModal'>
             <div className="Modal_Top">
-                <button onClick={close}>
+                <button onClick={() => handleClose()}>
                     <img src={closeIcon} alt="close button" />
                 </button>
             </div>
@@ -65,30 +86,38 @@ const LoginModal = ({ close }) => {
                         required={true}
                         maxLength="320"
                         minLength="6"
-                        showError={showErrorText}
+                        showError={showEmailErrorText}
+                        error={"Enter email in valid format"}
                         value={email}
+                        logIn={true}
                     />
                     <Input
                         type="password"
                         label="Password"
                         placeholderText="Your password"
-                        setValue={checkPasswordInput}
+                        setValue={checkPassword}
                         onChange={(e) => setPassword(e.target.value)}
-                        minLength="6"
+                        minLength="8"
                         value={password}
+                        error={"Password should contain 1 uppercase letter, 1 number and minimum 8 characters"}
+                        showError={showPasswordErrorText}
                     />
-
                 </div>
 
                 <div className="ForgotPassword">
                     <Link to="/forgetpassword">I forgot my password</Link>
                 </div>
                 <div className="Button">
-                    <Button type={"submit"} onClick={handleSubmit} color="#FFBA00" disabled={!(validEmailInput && validPasswordInput)}>
+                    <Button type={"submit"} onClick={handleSubmit} color="#FFBA00"
+                    // disabled={!(validEmailInput && validPasswordInput)}
+                    >
                         Login
                     </Button>
                 </div>
             </div>
+            {showError &&
+                <ErrorModal error={error} setShowError={setShowError} setError={setError} />
+            }
         </div>
 
     )

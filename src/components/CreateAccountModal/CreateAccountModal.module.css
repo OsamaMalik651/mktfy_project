@@ -68,11 +68,39 @@
   gap: 1.4rem;
   padding-top: 0.2rem;
 }
+.CAFormInputs {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+}
+.CAFormColumnLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.CAFormColumnRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.LoginButton {
+  margin-top: auto;
+}
+.CAFormColumnLeft :nth-child(4) {
+  padding-bottom: 0.125rem;
+}
 .CAPrivacyMessage {
   width: 67.8rem;
   box-sizing: border-box;
+  color: #888889;
+  font-size: 1.063rem;
 }
 .CAWelcomeMessage > p {
   color: #888889;
   font-size: 1.4rem;
+}
+.Small {
+  width: 15.93rem;
 }

@@ -12,9 +12,9 @@ export const Input = (props) => {
     },
     [inputValue],
   )
-  console.log(props.showError)
+
   return (
-    <div className={`Input ${props.className} ${inputType === 'email' ? 'Email' : ''}`}>
+    <div className={`Input ${props.className} ${inputType === 'email' && props.logIn ? 'LoginEmail' : ''}`}>
       <div className="InputLabel">
         <label htmlFor={props.label}
           className={props.showError ? 'Error' : ""}>{props.label}</label>
@@ -46,7 +46,7 @@ export const Input = (props) => {
         )}
       </div>
       {props.showError && <div className="Error">
-        <p>Your email is incorrect</p>
+        <p>{props.error}</p>
       </div>}
     </div>
   );

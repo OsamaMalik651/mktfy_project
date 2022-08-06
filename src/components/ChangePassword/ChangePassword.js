@@ -46,7 +46,7 @@ const ChangePassword = () => {
                         <PasswordCheckBox disabled={true} text="1 Uppercase" />
                         <PasswordCheckBox disabled={true} text="Number" />
                     </div>
-                    <div className="Button" >
+                    <div className={styles.Button} >
                         <Button color="#6318AF" disabled={false} className={styles.Button} onClick={() => setShowModal(!showModal)
                         }>Set Password</Button>
                     </div>

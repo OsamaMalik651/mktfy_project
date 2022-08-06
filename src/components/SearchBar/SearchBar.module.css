@@ -38,8 +38,8 @@
 }
 .Input > input {
   font-size: 0.9rem;
-  border: none;
   border-radius: 0px;
+  height: inherit;
 }
 .Input > button {
   background-color: white;
