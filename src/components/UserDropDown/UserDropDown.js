@@ -15,7 +15,10 @@ const UserDropDown = () => {
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOffClick);
-        return () => document.removeEventListener("mousedown", handleOffClick);
+        return () => {
+            document.removeEventListener("mousedown", handleOffClick)
+            setShow(false)
+        }
     }, []);
 
     const handleOffClick = (e) => {
@@ -50,40 +53,40 @@ const UserDropDown = () => {
                                 <b>Settings</b>
                             </li>
                             <li>
-                                <Link to="/home/account">
+                                <Link to="/home/account" onClick={() => setShow(false)}>
                                     Account Information
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/home/account/change-password">
+                                <Link to="/home/account/change-password" onClick={() => setShow(false)}>
                                     Change Password
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/home/my-purchases">
+                                <Link to="/home/my-purchases" onClick={() => setShow(false)}>
                                     My Purchases
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/home/my-listings">
+                                <Link to="/home/my-listings" onClick={() => setShow(false)}>
                                     My Listings
                                     <div className={styles.Count}>2</div>
                                 </Link>
                             </li>
                         </ul>
                     </div>
-                    <div className={styles.SettingsSection}>
+                    <div className={styles.SettingsSection} onClick={() => setShow(false)}>
                         <ul>
                             <li>
                                 <b>Help</b>
                             </li>
                             <li>
-                                <Link to="/home/faq">
+                                <Link to="/home/faq" onClick={() => setShow(false)}>
                                     FAQ
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">
+                                <Link to="#" onClick={() => setShow(false)}>
                                     Contact Us
                                 </Link>
                             </li>

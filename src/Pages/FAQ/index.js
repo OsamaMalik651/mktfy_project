@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BreadCrumb from '../../components/BreadCrumb/BreadCrumb';
 import Layout from '../../components/Layout/Layout';
 import styles from "./FAQ.module.css"
 import { FAQS } from '../../dummyData/FAQ';
 import { useState } from 'react';
 import { ReactComponent as RightArrow } from "../../assets/arrow_right-24px.svg"
+import { getFaqs } from '../../services/Faq';
 const FAQ = () => {
-    const [selectedQuestion, setSelectedQuestion] = useState(0);
+    const [selectedQuestion, setSelectedQuestion] = useState("0");
+    const [faqs, setFaqs] = useState([]);
+
+    const faqData = async () => {
+        const faqs = await getFaqs();
+        return faqs
+    }
+
+    useEffect(() => {
+        faqData().then(faqs => {
+            setFaqs(faqs)
+            setSelectedQuestion(faqs[0])
+        })
+    }, [])
+
     return (
         <div className={styles.FAQ}>
-
             <div className={styles.FaqContainer}>
                 <BreadCrumb />
                 <div className={styles.headingSection}>
@@ -17,15 +31,15 @@ const FAQ = () => {
                 </div>
                 <div className={styles.FaqCard}>
                     <div className={styles.FaqCard_Questions}>
-                        {FAQS.map((faq, index) => {
+                        {faqs.length && faqs.map((faq) => {
                             return (
-                                <div className={`${styles.Faq_Question} ${selectedQuestion === index ? styles.Active : ""}`}
-                                    key={index}
-                                    onClick={() => setSelectedQuestion(index)}
+                                <div className={`${styles.Faq_Question} ${selectedQuestion.id === faq.id ? styles.Active : ""}`}
+                                    key={faq.id}
+                                    onClick={() => setSelectedQuestion(faq)}
                                 >
                                     <p
                                     >
-                                        {faq.question}
+                                        {faq.title}
                                     </p>
                                     <RightArrow />
 
@@ -35,12 +49,15 @@ const FAQ = () => {
                         })}
                     </div>
                     <div className={styles.FaqCard_Answers}>
-                        <h1>{FAQS[selectedQuestion].question}</h1>
-                        {FAQS[selectedQuestion].answer.map((answer, index) => <p key={index}>{answer}</p>)}
+                        <h1>{selectedQuestion.title}</h1>
+                        {selectedQuestion.description?.split(".").map((sentence, index) => {
+                            return (
+                                <p key={index}>{sentence}{"."}</p>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
