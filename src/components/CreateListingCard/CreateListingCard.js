@@ -10,15 +10,16 @@ import Button from '../Button/Button'
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import UploadImageModal from '../UploadImageModal/UploadImageModal';
 
-const categories = ["Cars & Vehicles", "Funiture", "Electronics", "Real State"]
-const conditions = ["Used", "New"]
-const CITY_OPTIONS = ["Calgary", "Brooks", "Camrose"];
+const categories = ["Select category", "Cars & Vehicle", "Funiture", "Electronics", "Real Estate"]
+const conditions = ["Select condition", "Used", "New"]
+const CITY_OPTIONS = ["Select city", "Calgary", "Brooks", "Camrose"];
 const CreateListingCard = () => {
     const [category, setCategory] = useState("")
     const [condition, setCondition] = useState("");
     const [city, setCity] = useState("Select City");
     const [showModal, setShowModal] = useState(false)
     let show = false;
+
     const changeLoginModalState = () => {
         // setShowLoginModal(true);
         // navigate("/create-listing/upload-images");
