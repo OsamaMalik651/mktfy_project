@@ -9,6 +9,7 @@ import { useState } from 'react'
 import Button from '../Button/Button'
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import UploadImageModal from '../UploadImageModal/UploadImageModal';
+import { ReactComponent as CloseIcon } from '../../assets/icon_close_red.svg';
 
 const categories = ["Select category", "Cars & Vehicle", "Funiture", "Electronics", "Real Estate"]
 const conditions = ["Select condition", "Used", "New"]
@@ -16,24 +17,30 @@ const CITY_OPTIONS = ["Select city", "Calgary", "Brooks", "Camrose"];
 const CreateListingCard = () => {
     const [category, setCategory] = useState("")
     const [condition, setCondition] = useState("");
-    const [city, setCity] = useState("Select City");
-    const [showModal, setShowModal] = useState(false)
-    let show = false;
+    const [city, setCity] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    //Image upload modal states
+    const [previewImages, setPreviewImages] = useState(Array(5).fill({ imageURL: "", showPreview: false, imageID: "" }));
+    const [index, setIndex] = useState(0);
+
 
     const changeLoginModalState = () => {
-        // setShowLoginModal(true);
-        // navigate("/create-listing/upload-images");
         setShowModal(true)
     };
+
     return (
         <div className={styles.CreateListingCard}>
             <BreadCrumb />
             <h1>Create Listing</h1>
             <div className={styles.CreateListingCard_Body}>
                 <div className={styles.CreateListingCard_Left}>
-                    <div className={styles.CreateListingCard_Left_MainImage} onClick={() => changeLoginModalState()}>
-                        {show ? (
-                            <img src={PlaceholderImage} alt="" />
+                    <div className={styles.CreateListingCard_Left_MainImage} onClick={() => { setIndex(0); changeLoginModalState() }}>
+                        {previewImages[0].showPreview ? (
+                            <div className={styles.Uploaded}>
+                                <img src={previewImages[0].imageURL} alt="" />
+                                <CloseIcon />
+                            </div>
                         ) : <div className={styles.UploadPhoto} >
                             <img src={uploadIcon} alt="" />
                             <p>Choose or drag up to 5 photos</p>
@@ -41,20 +48,18 @@ const CreateListingCard = () => {
 
                     </div>
                     <div className={styles.CreateListingCard_Left_images}>
-                        <div className={styles.UploadPhoto_Small} onClick={() => changeLoginModalState()}>
-                            {show ? <img src={PlaceholderImage} alt="" className={styles.image} /> : <img src={uploadIcon} alt="" />}
 
-                        </div>
-                        <div className={styles.UploadPhoto_Small}>
-                            {show ? <img src={PlaceholderImage} alt="" className={styles.image} /> : <img src={uploadIcon} alt="" />}
-
-                        </div><div className={styles.UploadPhoto_Small}>
-                            {show ? <img src={PlaceholderImage} alt="" className={styles.image} /> : <img src={uploadIcon} alt="" />}
-
-                        </div><div className={styles.UploadPhoto_Small}>
-                            {show ? <img src={PlaceholderImage} alt="" className={styles.image} /> : <img src={uploadIcon} alt="" />}
-
-                        </div>
+                        {previewImages.filter((obj, index) => index !== 0).map((image, index) => {
+                            return (
+                                <div className={styles.UploadPhoto_Small} key={index} onClick={() => { setIndex(index + 1); changeLoginModalState() }}>
+                                    {image.showPreview ? <div className={styles.UploadedSmall}>
+                                        <img src={image.imageURL} alt="" className={styles.image} />
+                                        <CloseIcon />
+                                    </div> : <img src={uploadIcon} alt="" />}
+                                </div>
+                            )
+                        }
+                        )}
                     </div>
                 </div>
                 <div className={styles.CreateListingCard_Right}>
@@ -114,7 +119,13 @@ const CreateListingCard = () => {
                     </div>
                 </div>
             </div>
-            {showModal && <UploadImageModal close={() => setShowModal(!showModal)} />}
+            {showModal && <UploadImageModal
+                close={() => setShowModal(!showModal)}
+                setPreviewImages={setPreviewImages}
+                previewImages={previewImages}
+                index={index}
+            />
+            }
         </div >
     )
 }

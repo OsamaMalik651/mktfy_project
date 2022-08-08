@@ -8,40 +8,56 @@ import Button from '../Button/Button'
 import { uploadImages } from '../../services/CreateListing'
 import { FileUploader } from 'react-drag-drop-files'
 
-const UploadImageModal = ({ close }) => {
-    const [selectedFile, setSelectedFile] = useState([]);
+const UploadImageModal = ({ close, index, previewImages, maxNumberOfFilesSelected, setMaxNumberOfFilesSelected, setPreviewImages }) => {
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [previewImageUrl, setPreviewImageUrl] = useState("");
     const [isFilePicked, setIsFilePicked] = useState(false);
-    const [previewImageUrl, setPreviewImageUrl] = useState([]);
-    const [maxNumberOfFilesSelected, setMaxNumberOfFilesSelected] = useState(false);
+
 
     //File types for drag and drop
     const fileTypes = ["JPG", "PNG", "GIF"];
 
     const inputButtonChangeHandler = (event) => {
-        setSelectedFile(event.target.files);
-        setIsFilePicked(true);
+        if (!isFilePicked) {
+            setSelectedFile(event.target.files[0]);
+            setIsFilePicked(true);
+        }
     };
     const dragDropChangeHandler = (files) => {
         setSelectedFile(files);
         setIsFilePicked(true);
     };
+
     const handleSubmission = async () => {
         const images = new FormData();
-        [...selectedFile].forEach(file => images.append('image', file));
+        images.append("image", selectedFile);
+
         // const response = await uploadImages(images)
         // console.log(response)
-    }
 
-    //Set image url when one or more file is selected
+        /* Add modal close logic here */
+        const newArray = [...previewImages].map((obj, newIndex) => {
+            if (newIndex === index) {
+                return {
+                    ...obj,
+                    imageID: "",
+                    showPreview: true,
+                    imageURL: previewImageUrl
+                };
+            } else return obj;
+        });
+        setPreviewImages(newArray);
+        close();
+
+    }
+    //Set image url when file is selected
     useEffect(() => {
-        if (selectedFile.length > 0) {
-            const imageURLS = [...selectedFile].map(file => URL.createObjectURL(file));
-            setPreviewImageUrl(imageURLS);
-            setMaxNumberOfFilesSelected(imageURLS.length >= 5 ? true : false);
+        if (selectedFile) {
+            const imageURL = URL.createObjectURL(selectedFile);
+            setPreviewImageUrl(imageURL);
         }
     }, [selectedFile])
 
-    let navigate = useNavigate();
     return (
         <Modal>
             <div className="UploadImageModal">
@@ -55,16 +71,15 @@ const UploadImageModal = ({ close }) => {
                 </div>
                 <div className="UploadImageModal_Bottom">
                     <h1>Upload Photo(s)</h1>
-                    <div className={`ChooseFile ${maxNumberOfFilesSelected && "disabled"}`}>
-                        <label htmlFor="file" className={maxNumberOfFilesSelected && "disabled"}>
+                    <div className={`ChooseFile ${maxNumberOfFilesSelected ? "disabled" : undefined}`}>
+                        <label htmlFor="file" className={maxNumberOfFilesSelected ? "disabled" : undefined}>
                             <p>Choose File</p>
-                            <p>{isFilePicked ? selectedFile[0].name : "No file Chosen"}</p>
+                            <p>{isFilePicked ? selectedFile[0]?.name : "No file Chosen"}</p>
                         </label>
                         <input
                             id='file'
                             type="file"
                             name='file'
-                            multiple
                             onChange={(e) => !maxNumberOfFilesSelected && inputButtonChangeHandler(e)}
                         />
                     </div>
@@ -73,21 +88,14 @@ const UploadImageModal = ({ close }) => {
                             handleChange={dragDropChangeHandler}
                             name="file"
                             label="Drop files here"
-                            multiple
                             types={fileTypes}
                         /> :
                             <>
-                                <img id="output" src={previewImageUrl[0]} alt="" className="displayImage" />
-                                <div className="overlay" onClick={() => !maxNumberOfFilesSelected && setIsFilePicked(false)}>
-                                    <div className="text">{maxNumberOfFilesSelected ? "Click Upload" : "Click to select more images"}</div>
-                                </div></>}
+                                <img id="output" src={previewImageUrl} alt="" className="displayImage" />
+                            </>
+                        }
 
                     </div>
-                    <div className="Info">
-                        <p>Number of Files selectes: {selectedFile.length}</p>
-                        <button onClick={() => { setSelectedFile([]); setIsFilePicked(false); setMaxNumberOfFilesSelected(false) }} disabled={!maxNumberOfFilesSelected}>Clear images</button>
-                    </div>
-
                     <div className="Upload_Button">
                         <Button color="#6318AF" onClick={handleSubmission}>Upload</Button>
                     </div>
