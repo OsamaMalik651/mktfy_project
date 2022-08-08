@@ -51,11 +51,11 @@ const CreateListingCard = () => {
 
                         {previewImages.filter((obj, index) => index !== 0).map((image, index) => {
                             return (
-                                <div className={styles.UploadPhoto_Small} key={index} onClick={() => { setIndex(index + 1); changeLoginModalState() }}>
+                                <div className={styles.UploadPhoto_Small} key={index} >
                                     {image.showPreview ? <div className={styles.UploadedSmall}>
                                         <img src={image.imageURL} alt="" className={styles.image} />
                                         <CloseIcon />
-                                    </div> : <img src={uploadIcon} alt="" />}
+                                    </div> : <img src={uploadIcon} alt="" onClick={() => { setIndex(index + 1); changeLoginModalState() }} />}
                                 </div>
                             )
                         }

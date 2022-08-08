@@ -102,12 +102,13 @@
 .UploadPhoto_Small > img {
   width: 2rem;
   height: inherit;
-  border-radius: 4px;
 }
 
 .image {
   width: 6.375rem;
   height: 6.375rem;
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .CreateListingCard_Right {
