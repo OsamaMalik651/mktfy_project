@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Navigate, Route, useLocation } from 'react-router-dom';
 // import { Redirect, Route } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
-import checkAccessToken from './storage-helper';
+import { checkAccessToken } from './storage-helper';
 
 const ProtectedRoute = ({ children, ...rest }) => {
     const { authenticated, setAuthenticated } = useContext(AuthContext);
@@ -23,14 +23,7 @@ const ProtectedRoute = ({ children, ...rest }) => {
         return <Navigate to="/" state={{ from: location }} replace />;
     }
     return children;
-    // <Route {...rest} render={({ location }) => {
-    //     return authenticated === true
-    //         ? children
-    //         : <Navigate to={{
-    //             pathname: '/login',
-    //             state: { from: location }
-    //         }} />
-    // }} />
+
 }
 
 export default ProtectedRoute

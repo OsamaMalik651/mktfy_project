@@ -13,7 +13,7 @@ export const AuthContextProvider = ({ children }) => {
     const [singUpCompleted, setSignUpCompleted] = useState(false)
     const [error, setError] = useState({ title: "", description: "" })
     const [showError, setShowError] = useState(false)
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(sessionStorage.getItem("user") || {});
 
     // configure Auth0
     const webAuth = new auth0js.WebAuth({
@@ -45,6 +45,12 @@ export const AuthContextProvider = ({ children }) => {
         }
     }, [])
 
+    // Save user to session storage
+    useEffect(() => {
+        if (user) {
+            sessionStorage.setItem("user", JSON.stringify(user))
+        }
+    }, [user])
     const login = (email, password) => {
         webAuth.login(
             {
@@ -65,6 +71,7 @@ export const AuthContextProvider = ({ children }) => {
     const logout = () => {
         setAuthenticated(false)
         sessionStorage.removeItem("access_token")
+        sessionStorage.removeItem("user")
         webAuth.logout({ returnTo: "http://localhost:3000/" })
     }
 
@@ -115,7 +122,7 @@ export const AuthContextProvider = ({ children }) => {
     const getUserInfo = async (id) => {
         try {
             const user = await axios.get(`/User/${id}`);
-            setUser(user);
+            setUser(user.data);
         } catch (error) {
             console.log(error);
         }

@@ -8,4 +8,9 @@ const checkAccessToken = () => {
     return false;
 }
 
-export default checkAccessToken;
+// Clear local storage
+const clearLocalStorage = () => {
+    sessionStorage.removeItem("access_token")
+    sessionStorage.removeItem("user")
+}
+export { checkAccessToken, clearLocalStorage };
