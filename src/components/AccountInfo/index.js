@@ -24,6 +24,10 @@ const AccountInfo = () => {
 
 
     useEffect(() => {
+        getUpdatedUserInfo()
+    }, [])
+
+    useEffect(() => {
         if (!user) {
             getUpdatedUserInfo()
         }

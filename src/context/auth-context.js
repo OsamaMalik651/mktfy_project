@@ -61,9 +61,11 @@ export const AuthContextProvider = ({ children }) => {
                 email: email,
                 password: password,
                 redirectUri: "http://localhost:3000/",
+                onRedirecting: function (done) {
+                    done();
+                },
             },
             function (error) {
-                console.log(error)
                 setError({ title: error.code, description: error.description })
                 setShowError(true)
             }
@@ -133,7 +135,6 @@ export const AuthContextProvider = ({ children }) => {
     const getUserInfo = async (id) => {
         try {
             const user = await axios.get(`/User/${id}`);
-            console.log(user)
             setUser(user.data);
         } catch (error) {
             console.log(error);
@@ -145,7 +146,7 @@ export const AuthContextProvider = ({ children }) => {
         const id = getID()
         try {
             const response = await axios.get(`/User/${id}`);
-            setUser(response.data);
+            setUser(response);
         } catch (error) {
             console.log(error);
         }
