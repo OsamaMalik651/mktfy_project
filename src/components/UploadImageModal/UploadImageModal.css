@@ -50,8 +50,46 @@
   align-items: center;
   gap: 1.2rem;
 }
-
-.ChooseFile > button {
+.UploadImageModal_Bottom > .Info > * {
+  margin: 0;
+  padding: 0;
+}
+.UploadImageModal_Bottom > .Info {
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+}
+.UploadImageModal_Bottom > .Info > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0rem;
+  background-color: #ff0101;
+  border: none;
+  border-radius: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  height: 2rem;
+  width: max-content;
+  box-sizing: border-box;
+  padding: 0rem 1rem;
+}
+.UploadImageModal_Bottom > .Info > button:disabled {
+  cursor: not-allowed;
+  background-color: #cccccc;
+}
+.ChooseFile > label {
+  display: flex;
+  width: inherit;
+  height: inherit;
+  gap: 1.125rem;
+  margin-bottom: 2rem;
+}
+.ChooseFile > label :nth-child(1) {
   width: 16rem;
   height: inherit;
   background-color: #8888892e;
@@ -60,14 +98,30 @@
   color: #888889;
   font-size: 1.2rem;
   font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.ChooseFile > p {
-  font-weight: 300;
+.ChooseFile > label :nth-child(2) {
+  min-width: 8.188rem;
+  height: inherit;
   color: #888889;
+  font-size: 1.2rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.ChooseFile > input {
+  opacity: 0;
 }
 
 .ImageDrop {
+  position: relative;
   width: inherit;
   height: 24.125rem;
   border: 3px dashed #e2e2e2;
@@ -78,7 +132,77 @@
   justify-content: center;
   color: #888889;
 }
+.ImageDrop > label {
+  width: inherit;
+  height: inherit;
+  border: none;
+  pointer-events: not-allowed;
+}
+.ImageDrop > label .sc-gsnTZi {
+  opacity: 0;
+}
+.ImageDrop > label > * :not(div) {
+  display: none;
+}
+.ImageDrop > label > div {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.ImageDrop > label > div :nth-child(1) {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #888889;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+.ImageDrop > .displayImage {
+  width: inherit;
+  height: inherit;
+  border-radius: 0.25rem;
+}
+.ImageDrop:hover .overlay {
+  cursor: pointer;
+  background-color: black;
+  opacity: 0.5;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #7396a1;
+}
+.text {
+  color: white;
+  opacity: 1;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
 .ImageDrop > h1 {
+  position: absolute;
   font-size: 2.5rem;
   opacity: 0.8;
   font-weight: bold;

@@ -47,9 +47,20 @@
   align-items: center;
   cursor: pointer;
 }
-.CreateListingCard_Left_MainImage > img {
+.Uploaded {
   width: inherit;
   height: inherit;
+  position: relative;
+}
+.Uploaded > svg {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.CreateListingCard_Left_MainImage > .Uploaded > img {
+  width: inherit;
+  height: inherit;
+  border-radius: 4px;
 }
 .UploadPhoto {
   text-align: center;
@@ -77,10 +88,27 @@
   align-items: center;
   cursor: pointer;
 }
+.UploadedSmall {
+  width: inherit;
+  height: inherit;
+  position: relative;
+}
+.UploadedSmall > svg {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 1rem;
+}
+.UploadPhoto_Small > img {
+  width: 2rem;
+  height: inherit;
+}
 
 .image {
   width: 6.375rem;
   height: 6.375rem;
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .CreateListingCard_Right {
