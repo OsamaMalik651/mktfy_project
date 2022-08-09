@@ -14,6 +14,7 @@ export const AuthContextProvider = ({ children }) => {
     const [error, setError] = useState({ title: "", description: "" })
     const [showError, setShowError] = useState(false)
     const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")) || {});
+    const [loading, setLoading] = useState(false)
 
     // configure Auth0
     const webAuth = new auth0js.WebAuth({
@@ -30,9 +31,7 @@ export const AuthContextProvider = ({ children }) => {
             sessionStorage.setItem("access_token", access_token);
             setAuthenticated(true)
             webAuth.client.userInfo(access_token, (error, user) => {
-
                 if (error) return console.log(error)
-
                 let newUserDetails = JSON.parse(sessionStorage.getItem("userDetails"))
                 if (newUserDetails) {
                     //create user in backend
@@ -110,7 +109,6 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     // User functions for backend
-
     const getID = () => {
         const access_token = sessionStorage.getItem("access_token")
         if (access_token) {
@@ -134,10 +132,14 @@ export const AuthContextProvider = ({ children }) => {
     //This function runs when user is logged in for the first time
     const getUserInfo = async (id) => {
         try {
+            setLoading(true)
             const user = await axios.get(`/User/${id}`);
-            setUser(user.data);
+            console.log(user)
+            setUser(user);
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -164,7 +166,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ login, logout, signUp, getUpdatedUserInfo, updateUserInfo, singUpCompleted, authenticated, setAuthenticated, user, error, setError, showError, setShowError }}>
+        <AuthContext.Provider value={{ login, logout, signUp, getUpdatedUserInfo, updateUserInfo, singUpCompleted, authenticated, setAuthenticated, user, error, setError, showError, setShowError, loading }}>
             {children}
         </AuthContext.Provider>
     )
