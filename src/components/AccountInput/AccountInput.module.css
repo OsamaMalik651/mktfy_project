@@ -1,0 +1,66 @@
+.AccountInput {
+  width: 33.25rem;
+  min-height: 6.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.Label {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.4rem;
+}
+.Label > label {
+  color: #6b6b6c;
+  font-size: 1rem;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+.Label > p {
+  font-size: 0.8rem;
+}
+.Input_Field {
+  width: 100%;
+  height: 4.25rem;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  border-radius: 0.2rem;
+}
+.Input_Field:focus-within {
+  border: 1px solid #9349de;
+}
+.Input_Field > input {
+  width: 100%;
+  height: 4.25rem;
+  border: none;
+  border-radius: 0.2rem;
+  box-sizing: border-box;
+  padding-left: 2rem;
+  font: 1.2rem "Open Sans", sans-serif;
+}
+.Input_Field > input::placeholder {
+  color: #4d4d4d60;
+}
+
+input:focus {
+  outline: none;
+  font-size: 1.2rem;
+  color: #4d4d4d;
+}
+.Error {
+  color: #ff2c2c;
+  align-self: flex-start;
+}
+.Error_border {
+  border: 1px solid #ff2c2c;
+}
+.Error p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font: normal normal normal 14px/19px;
+}

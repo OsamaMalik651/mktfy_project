@@ -16,3 +16,25 @@ export const checkPasswordInput = (enteredPassword) => {
     // return passwordRegex.test(enteredPassword)
     return true
 }
+
+//Convert phone number to format (xxx)xxx-xxxx
+export const normalizePhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return ''
+    //check if number length equals to 10
+    if (phoneNumber.length === 10) {
+        //reformat and return phone number
+        phoneNumber = phoneNumber.replace(/[^\d]/g, "");
+        return phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, " ($1) $2 - $3");
+    }
+}
+
+//Convert phone number to format xxxxxxxxxx
+export const denormalizePhoneNumber = (phoneNumber) => {
+    phoneNumber = phoneNumber.replace(/[^\d]/g, "");
+    //check if number length equals to 10
+    if (phoneNumber.length === 10) {
+        //reformat and return phone number
+        return phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1$2$3");
+    }
+    return null;
+}

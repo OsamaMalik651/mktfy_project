@@ -1,13 +1,71 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BreadCrumb from '../BreadCrumb/BreadCrumb'
 import Button from '../Button/Button'
 import { Input } from '../Input/Input'
 import Select from '../Select/Select'
 import styles from "./AccountInfo.module.css"
+import { AuthContext } from '../../context/auth-context'
+import { denormalizePhoneNumber, normalizePhoneNumber } from '../../utils'
+import AccountInput from '../AccountInput'
+
+
 const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
 
 const AccountInfo = () => {
-    const [city, setCity] = useState("");
+    const { user, updateUserInfo, getUpdatedUserInfo } = React.useContext(AuthContext)
+    const [firstName, setFirstName] = useState(user?.fristName || "");
+    const [lastName, setLastName] = useState(user?.lastName || "");
+    const [email, setEmail] = useState(user?.email || "");
+    const [phone, setPhone] = useState(user?.phone || "");
+    const [address, setAddress] = useState(user?.address || "");
+    const [city, setCity] = useState(user?.city || "");
+    const [phoneError, setPhoneError] = useState("");
+    const [addressError, setAddressError] = useState("");
+
+
+    useEffect(() => {
+        if (!user) {
+            getUpdatedUserInfo()
+        }
+    }, [user]);
+
+    //Function to set phone number
+    // setPhone is not called because we need to check if the phone number is entered or not
+    //and show error accordingly
+    const setPhoneNumber = (enteredPhone) => {
+        if (enteredPhone.length < 10) {
+            setPhoneError("Phone number is required")
+            return
+        } else {
+            setPhoneError("")
+            setPhone(normalizePhoneNumber(enteredPhone))
+        }
+    }
+
+    //Check if the address is entered or not
+    const checkAddressPresent = (address) => {
+        if (!address) {
+            setAddressError("Address is required")
+            setAddress("")
+            return
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (!phoneError && !addressError) {
+
+            let updatedUserDetails = {
+                firstName,
+                lastName,
+                phone: denormalizePhoneNumber(phone),
+                address,
+                city,
+                email
+            }
+            updateUserInfo(updatedUserDetails)
+        }
+    }
     return (
         <div className={styles.AccountInfo}>
             <div className={styles.BreadCrumb_Section}>
@@ -19,32 +77,38 @@ const AccountInfo = () => {
                     <div className={styles.heading}>
                         <h1>Personal Information</h1>
                         <div className={styles.Inputs}>
-                            <Input
-                                inputType="text"
-                                label="First Name"
-                                placeholderText="George"
-                                inputValue="George"
+                            <AccountInput
+                                type="text"
+                                name="First Name"
+                                placeholder="Enter First Name"
+                                value={firstName}
+                                setValue={setFirstName}
                             />
-                            <Input
-                                inputType="text"
-                                label="Last Name"
-                                placeholderText="Carlson"
-                                inputValue="George"
+                            <AccountInput
+                                type="text"
+                                name="Last Name"
+                                placeholder="Enter Last Name"
+                                value={lastName}
+                                setValue={setLastName}
                             />
-                            <Input
-                                inputType="email"
-                                label="Email"
-                                placeholderText="Carlson"
-                                inputValue="George"
+                            <AccountInput
+                                type="email"
+                                name="Email"
+                                placeholder="Enter email"
+                                value={email}
+                                disabled
                             />
-                            <Input
-                                label="Phone"
+                            <AccountInput
+                                name="Phone"
                                 type="tel"
-                                placeholderText="+1 (000) 000 - 0000"
-                                required={true}
-                                maxLength="9"
-                                minLength="6"
-
+                                placeholder="(000) 000 - 0000"
+                                minLength="10"
+                                maxLength="10"
+                                value={phone}
+                                setValue={setPhone}
+                                onBlur={setPhoneNumber}
+                                error={phoneError}
+                                setError={setPhoneError}
                             />
 
                         </div>
@@ -56,11 +120,16 @@ const AccountInfo = () => {
 
                     </div>
                     <div className={styles.Inputs}>
-                        <Input
-                            inputType="text"
-                            label="Default Pickup Address"
-                            placeholderText="123 1st Street SW"
-                            inputValue="George"
+                        <AccountInput
+                            type="text"
+                            name="Default Pickup Address"
+                            placeholder="Enter Address"
+                            value={address}
+                            setValue={setAddress}
+                            onBlur={(e) => checkAddressPresent(e.target.value)}
+                            required
+                            error={addressError}
+                            setError={setAddressError}
                         />
                         <Select
                             name="city"
@@ -71,7 +140,7 @@ const AccountInfo = () => {
                         />
                     </div>
                     <div className={styles.button}>
-                        <Button color="#FFBA00" className={styles.Button}>
+                        <Button color="#FFBA00" className={styles.Button} onClick={handleSubmit}>
                             Save
                         </Button>
                     </div>

@@ -13,7 +13,7 @@ export const AuthContextProvider = ({ children }) => {
     const [singUpCompleted, setSignUpCompleted] = useState(false)
     const [error, setError] = useState({ title: "", description: "" })
     const [showError, setShowError] = useState(false)
-    const [user, setUser] = useState(sessionStorage.getItem("user") || {});
+    const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")) || {});
 
     // configure Auth0
     const webAuth = new auth0js.WebAuth({
@@ -51,6 +51,8 @@ export const AuthContextProvider = ({ children }) => {
             sessionStorage.setItem("user", JSON.stringify(user))
         }
     }, [user])
+
+    // Auth0 functions
     const login = (email, password) => {
         webAuth.login(
             {
@@ -105,11 +107,19 @@ export const AuthContextProvider = ({ children }) => {
         );
     }
 
+    // User functions for backend
+
+    const getID = () => {
+        const access_token = sessionStorage.getItem("access_token")
+        if (access_token) {
+            const decoded = jwt_decode(access_token)
+            return decoded.sub;
+        }
+    }
+
     //Create user at the backend
     const createUser = async (sub, userDetails) => {
-
         const data = { ...userDetails, id: sub }
-
         try {
             const res = await axios.post("/User", data);
             sessionStorage.removeItem("userDetails")
@@ -119,16 +129,41 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
     //Get User info
+    //This function runs when user is logged in for the first time
     const getUserInfo = async (id) => {
         try {
             const user = await axios.get(`/User/${id}`);
+            console.log(user)
             setUser(user.data);
         } catch (error) {
             console.log(error);
         }
     };
+
+    //Get updated user info.
+    const getUpdatedUserInfo = async () => {
+        const id = getID()
+        try {
+            const response = await axios.get(`/User/${id}`);
+            setUser(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    //Update User info
+    const updateUserInfo = async (userDetails) => {
+        const id = getID()
+        const body = { ...userDetails, id }
+        try {
+            const response = await axios.put("/User", body);
+            setUser(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
-        <AuthContext.Provider value={{ login, authenticated, setAuthenticated, logout, signUp, singUpCompleted, user, error, setError, showError, setShowError }}>
+        <AuthContext.Provider value={{ login, logout, signUp, getUpdatedUserInfo, updateUserInfo, singUpCompleted, authenticated, setAuthenticated, user, error, setError, showError, setShowError }}>
             {children}
         </AuthContext.Provider>
     )
