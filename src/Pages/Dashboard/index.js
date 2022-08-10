@@ -5,9 +5,11 @@ import Homepage from '../../components/Homepage/Homepage'
 import Layout from '../../components/Layout/Layout'
 import styles from "./Dashboard.module.css"
 import { AuthContext } from '../../context/auth-context'
+import 'antd/dist/antd.css';
+
 const Dashboard = () => {
-    const { loading } = useContext(AuthContext)
-    return (loading ? <Spin /> :
+
+    return (
         <div className={styles.Dashboard}>
             <Layout>
                 <Outlet />

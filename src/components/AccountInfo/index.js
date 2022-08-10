@@ -13,7 +13,7 @@ const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
 
 const AccountInfo = () => {
     const { user, updateUserInfo, getUpdatedUserInfo } = React.useContext(AuthContext)
-    const [firstName, setFirstName] = useState(user?.fristName || "");
+    const [firstName, setFirstName] = useState(user?.firstName || "");
     const [lastName, setLastName] = useState(user?.lastName || "");
     const [email, setEmail] = useState(user?.email || "");
     const [phone, setPhone] = useState(user?.phone || "");
@@ -130,7 +130,7 @@ const AccountInfo = () => {
                             placeholder="Enter Address"
                             value={address}
                             setValue={setAddress}
-                            onBlur={(e) => checkAddressPresent(e.target.value)}
+                            onBlur={checkAddressPresent}
                             required
                             error={addressError}
                             setError={setAddressError}

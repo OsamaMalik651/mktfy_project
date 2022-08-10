@@ -67,11 +67,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
 }
 .Avatar > h1 {
+  margin-top: 0.313rem;
   font-size: 1rem;
   font-weight: bold;
+  color: white;
 }
 .Name {
   box-sizing: border-box;
