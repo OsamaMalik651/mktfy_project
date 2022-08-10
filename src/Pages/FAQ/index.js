@@ -17,8 +17,11 @@ const FAQ = () => {
 
     useEffect(() => {
         faqData().then(faqs => {
-            setFaqs(faqs)
-            setSelectedQuestion(faqs[0])
+            if (faqs) {
+                setFaqs(faqs)
+                setSelectedQuestion(faqs[0])
+            }
+            return;
         })
     }, [])
 
@@ -31,7 +34,7 @@ const FAQ = () => {
                 </div>
                 <div className={styles.FaqCard}>
                     <div className={styles.FaqCard_Questions}>
-                        {faqs.length && faqs.map((faq) => {
+                        {faqs?.length && faqs.map((faq) => {
                             return (
                                 <div className={`${styles.Faq_Question} ${selectedQuestion.id === faq.id ? styles.Active : ""}`}
                                     key={faq.id}

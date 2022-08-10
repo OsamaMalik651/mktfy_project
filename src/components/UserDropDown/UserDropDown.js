@@ -11,7 +11,7 @@ const UserDropDown = () => {
     let userName = "George Calson"
     const [show, setShow] = useState(false);
     const dropDown = useRef(null)
-    const { logout } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOffClick);
@@ -34,15 +34,15 @@ const UserDropDown = () => {
             <p>Welcome back,</p>
             <div className={styles.UserName} onClick={handleShowOptions}>
                 <img src={DropDown} alt="" className={show ? styles.Show : ""} />
-                <h1>{userName}</h1>
+                <h1>{user?.firstName + " " + user?.lastName}</h1>
             </div>
             <div className={show ? styles.UserDropDownMenu : styles.UserDropDownMenuHide}>
                 <div className={styles.UserSection}>
                     <div className={styles.Avatar}>
-                        <h1 className="">G</h1>
+                        <h1 >{user.firstName?.charAt(0)}</h1>
                     </div>
                     <div className={styles.Name}>
-                        <h1>{userName}</h1>
+                        <h1>{user?.firstName + " " + user?.lastName}</h1>
                     </div>
 
                 </div>

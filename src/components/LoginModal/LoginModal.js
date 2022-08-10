@@ -19,8 +19,6 @@ const LoginModal = ({ close }) => {
 
     const { setShowModal } = useOutletContext();
 
-    console.log("login modal rendered")
-
     const { error, setError, showError, setShowError } = useContext(AuthContext);
 
     let navigate = useNavigate()
