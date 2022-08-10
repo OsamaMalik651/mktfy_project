@@ -75,7 +75,6 @@ const LoginModal = ({ close }) => {
             <div className="Modal_Bottom">
                 <h1>Welcome Back!</h1>
                 <div className="Modal_Inputs">
-
                     <Input
                         type="email"
                         label="Email"

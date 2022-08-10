@@ -3,6 +3,7 @@ import auth0js from "auth0-js";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import axios from "../utils/axios-helper"
+import { message } from 'antd';
 const { REACT_APP_DOMAIN, REACT_APP_CLIENTID, REACT_APP_AUDIENCE } = process.env
 
 export const AuthContext = createContext();
@@ -108,6 +109,23 @@ export const AuthContextProvider = ({ children }) => {
         );
     }
 
+    const changePassword = (email) => {
+        webAuth.changePassword(
+            {
+                connection: "Username-Password-Authentication",
+                email: email,
+                clientID: REACT_APP_CLIENTID,
+            },
+            async function (error, res) {
+                if (error) {
+                    message.error(error.description)
+                }
+                if (res) {
+                    message.success(res)
+                }
+            }
+        )
+    }
     // User functions for backend
     const getID = () => {
         const access_token = sessionStorage.getItem("access_token")
@@ -134,7 +152,6 @@ export const AuthContextProvider = ({ children }) => {
         try {
             setLoading(true)
             const user = await axios.get(`/User/${id}`);
-            console.log(user)
             setUser(user);
         } catch (error) {
             console.log(error);
@@ -166,7 +183,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ login, logout, signUp, getUpdatedUserInfo, updateUserInfo, singUpCompleted, authenticated, setAuthenticated, user, error, setError, showError, setShowError, loading }}>
+        <AuthContext.Provider value={{ login, logout, signUp, changePassword, getUpdatedUserInfo, updateUserInfo, singUpCompleted, authenticated, setAuthenticated, user, error, setError, showError, setShowError, loading }}>
             {children}
         </AuthContext.Provider>
     )

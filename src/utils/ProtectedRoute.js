@@ -27,8 +27,9 @@ const ProtectedRoute = ({ children, ...rest }) => {
         return <Spin style={{ width: "100vw", height: "100vh", paddingTop: "45vh", textAlign: "center", background: "rgba(0, 0, 0, 0.7)", borderRadius: "4px", position: "fixed", zIndex: "9999" }} />;
     }
     if (!authenticated) {
-        // return <Navigate to="/" state={{ from: location }} replace />;
-        logout()
+        return <Navigate to="/" state={{ from: location }} replace />;
+
+        // logout()
     }
     return children;
 
