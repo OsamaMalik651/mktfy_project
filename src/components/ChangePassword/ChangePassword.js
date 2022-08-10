@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import AccountInput from '../AccountInput'
 import BreadCrumb from '../BreadCrumb/BreadCrumb'
 import Button from '../Button/Button'
-import { Input } from '../Input/Input'
-import PasswordCheckBox from '../PasswordCheckBox/PasswordCheckBox'
+import { AuthContext } from '../../context/auth-context'
 import TryAgain from '../TryAgainModal/TryAgain'
 import styles from "./ChangePassword.module.css"
 
 const ChangePassword = () => {
+    const { changePassword, user } = useContext(AuthContext)
     const [showModal, setShowModal] = useState(false);
+    const [email, setEmail] = useState(user?.email || "");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        changePassword(email);
+    }
+
     return (
         <div className={styles.ChangePassword}>
             <div className={styles.BreadCrumb_Section}>
@@ -17,38 +25,18 @@ const ChangePassword = () => {
                 <div className={styles.Content}>
                     <div className={styles.CurrentPassword}>
                         <h1>Change Password</h1>
-                        <Input
-                            type="password"
-                            label="Current Password"
-                            placeholderText="Your current password"
-                            minLength="6"
+                        <p>Please enter your email in the field below. We will send you an email to reset your password.</p>
+                        <AccountInput
+                            type="email"
+                            name="Email"
+                            placeholder="Enter email"
+                            value={email}
+                            setValue={setEmail}
                         />
-                        <p>The password must have at least 6 characters and must contain 1 uppercase and 1 number.</p>
+                    </div>
 
-                    </div>
-                    <div className={styles.Inputs}>
-                        <Input
-                            type="password"
-                            label="New Password"
-                            placeholderText="Your password"
-                            minLength="6"
-                            strength="Weak"
-                        />
-                        <Input
-                            type="password"
-                            label="Confirm Password"
-                            placeholderText="Your password"
-                            minLength="6"
-                        />
-                    </div>
-                    <div className="PasswordCheckboxes">
-                        <PasswordCheckBox disabled={false} text="At least 6 Characters" />
-                        <PasswordCheckBox disabled={true} text="1 Uppercase" />
-                        <PasswordCheckBox disabled={true} text="Number" />
-                    </div>
                     <div className={styles.Button} >
-                        <Button color="#6318AF" disabled={false} className={styles.Button} onClick={() => setShowModal(!showModal)
-                        }>Set Password</Button>
+                        <Button color="#6318AF" disabled={false} className={styles.Button} onClick={handleSubmit}>Set Password</Button>
                     </div>
                 </div>
             </div>

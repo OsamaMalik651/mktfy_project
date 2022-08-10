@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./ForgetPWModal.css"
 import closeIcon from "../../assets/icon_close.svg"
 import backIcon from "../../assets/icon_back.svg"
 import { Input } from '../Input/Input'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
+import { AuthContext } from '../../context/auth-context'
+
 import { Navigate, useNavigate, useOutletContext } from 'react-router-dom'
 const ForgetPWModal = ({ close, modalType }) => {
     const [email, setEmail] = useState("");
@@ -12,9 +14,9 @@ const ForgetPWModal = ({ close, modalType }) => {
     const [validEmailInput, setValidEmailInput] = useState(false);
     const [showErrorText, setShowErrorText] = useState(false)
     const { setShowModal } = useOutletContext();
+    const { changePassword } = useContext(AuthContext)
 
     let navigate = useNavigate();
-    console.log(modalType)
 
     // Make the below function reusable
     const checkEmailInput = (enteredEmail) => {
@@ -37,8 +39,12 @@ const ForgetPWModal = ({ close, modalType }) => {
         setVerificationCode(enteredCode)
     }
 
-    const handleVerificationCodeSubmit = () => {
-        navigate("/createpassword")
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        changePassword(email);
+        setShowModal(false);
+        navigate(-1);
+
     }
     const handleClose = () => {
         setShowModal(false);
@@ -74,7 +80,7 @@ const ForgetPWModal = ({ close, modalType }) => {
                             />
                         </div>
                         <div className="Button" >
-                            <Button color="#6318AF" onClick={() => navigate("/resetpassword")}>Sumbit</Button>
+                            <Button color="#6318AF" onClick={handleSubmit}>Sumbit</Button>
                         </div>
 
                     </div>
@@ -97,7 +103,7 @@ const ForgetPWModal = ({ close, modalType }) => {
                         <a href="#">I didn’t receive the code, Please send it again</a>
                     </div>}
                     <div className="Button">
-                        <Button color="#6318AF" onClick={handleVerificationCodeSubmit}>Sumbit</Button>
+                        <Button color="#6318AF" >Sumbit</Button>
                     </div>
                 </div>
                 )}

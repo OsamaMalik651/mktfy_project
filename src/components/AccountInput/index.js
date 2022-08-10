@@ -25,7 +25,7 @@ const AccountInput = ({ name,
                     maxLength={maxLength}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    onBlur={(e) => onBlur(e.target.value)}
+                    onBlur={(e) => { onBlur && onBlur(e.target.value) }}
                     onFocus={() => setError && setError("")}
                     disabled={disabled}
                     required={required}
