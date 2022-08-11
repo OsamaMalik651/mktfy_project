@@ -12,7 +12,6 @@ export const Input = (props) => {
     },
     [inputValue],
   )
-
   return (
     <div className={`Input ${props.className} ${inputType === 'email' && props.logIn ? 'LoginEmail' : ''}`}>
       <div className="InputLabel">
@@ -22,7 +21,7 @@ export const Input = (props) => {
 
       <div className={`Input_Field ${props.className}${props.showError ? 'Error_border' : ""}`} >
         <input
-          type={`${inputType}`}
+          type={inputType}
           id={props.label}
           placeholder={props.placeholderText}
           required={props.required}
