@@ -4,11 +4,20 @@ import axios from "../utils/axios-helper";
 const uploadImages = async (images) => {
     try {
         const response = await axios.post("/upload", images);
-        console.log(response)
         return response.data
     } catch (error) {
         console.log(error)
     }
 }
 
-export { uploadImages };
+//Create listing
+const createListing = async (listing) => {
+    console.log(listing)
+    try {
+        const response = await axios.post("/Listing", listing);
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+export { uploadImages, createListing };
