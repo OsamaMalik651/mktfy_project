@@ -11,7 +11,7 @@ const UserDropDown = () => {
     let userName = "George Calson"
     const [show, setShow] = useState(false);
     const dropDown = useRef(null)
-    const { user, logout } = useContext(AuthContext);
+    const { user, setAuthenticated } = useContext(AuthContext);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleOffClick);
@@ -94,7 +94,7 @@ const UserDropDown = () => {
                     </div>
                 </div>
 
-                <div className={styles.SignOut} onClick={logout}>
+                <div className={styles.SignOut} onClick={() => setAuthenticated(false)}>
                     <div className={styles.Signout_Button}>
                         Sign Out
                         <img src={ExitIcon} alt="" />

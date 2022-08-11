@@ -4,13 +4,14 @@ import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import axios from "../utils/axios-helper"
 import { message } from 'antd';
+import { checkAccessToken } from "../utils/storage-helper";
 const { REACT_APP_DOMAIN, REACT_APP_CLIENTID, REACT_APP_AUDIENCE } = process.env
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 
-    const [authenticated, setAuthenticated] = useState(false)
+    const [authenticated, setAuthenticated] = useState(checkAccessToken())
     const [singUpCompleted, setSignUpCompleted] = useState(false)
     const [error, setError] = useState({ title: "", description: "" })
     const [showError, setShowError] = useState(false)
@@ -73,7 +74,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     const logout = () => {
-        setAuthenticated(false)
+        // setAuthenticated(false)
         sessionStorage.removeItem("access_token")
         sessionStorage.removeItem("user")
         webAuth.logout({ returnTo: "http://localhost:3000/" })
@@ -140,6 +141,7 @@ export const AuthContextProvider = ({ children }) => {
         const data = { ...userDetails, id: sub }
         try {
             const res = await axios.post("/User", data);
+            setUser(res)
             sessionStorage.removeItem("userDetails")
             console.log(res)
         } catch (error) {
