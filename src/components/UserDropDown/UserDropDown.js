@@ -8,7 +8,6 @@ import { AuthContext } from '../../context/auth-context';
 
 import styles from "./UserDropDown.module.css"
 const UserDropDown = () => {
-    let userName = "George Calson"
     const [show, setShow] = useState(false);
     const dropDown = useRef(null)
     const { user, setAuthenticated } = useContext(AuthContext);

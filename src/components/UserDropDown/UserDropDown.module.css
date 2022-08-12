@@ -59,9 +59,13 @@
   align-items: center;
   gap: 0.5rem;
 }
+.Avatar > * {
+  margin: 0;
+  padding: 0;
+}
 .Avatar {
   background-color: #6318af;
-  height: 3.125rem;
+  height: inherit;
   width: 3.125rem;
   border-radius: 50%;
   display: flex;
@@ -69,10 +73,14 @@
   justify-content: center;
 }
 .Avatar > h1 {
-  margin-top: 0.313rem;
+  /* margin-top: 0.313rem; */
   font-size: 1rem;
   font-weight: bold;
   color: white;
+}
+.Name > * {
+  margin: 0;
+  padding: 0;
 }
 .Name {
   box-sizing: border-box;

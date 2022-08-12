@@ -62,8 +62,8 @@
 .ResetPWModal_Bottom > .PasswordCheckboxes {
   align-self: flex-start;
   margin: 0.125rem 0rem 1.5rem 0rem;
+  height: fit-content;
 }
-
 .TosMessage {
   align-self: flex-start;
   display: flex;

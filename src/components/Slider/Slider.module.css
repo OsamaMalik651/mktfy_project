@@ -1,5 +1,6 @@
 .Slider {
-  width: 102.25rem;
+  max-width: 102.25rem;
+  width: 100%;
   box-sizing: border-box;
   min-height: 30rem;
   background-color: white;
@@ -24,6 +25,7 @@
   gap: 1.4rem;
   overflow: scroll;
   scroll-behavior: smooth;
+  background: transparent;
 }
 .Slider_Cards::-webkit-scrollbar {
   display: none;

@@ -6,6 +6,9 @@ import Button from '../Button/Button'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 import Select from '../Select/Select'
 import { useState } from 'react'
+import { isEmpty } from '../../utils'
+import { message } from 'antd';
+
 const CITY_OPTIONS = ["Select City", "Calgary", "Brooks", "Camrose"];
 
 const CreateAccountModal = ({ close }) => {
@@ -23,12 +26,23 @@ const CreateAccountModal = ({ close }) => {
         setShowModal(false);
         navigate("/")
     }
-
+    const Error = () => {
+        message.error({
+            content: 'Please fill out all fields',
+            style: {
+                zIndex: '9999'
+            },
+        });
+    };
     const handleSubmit = () => {
         const userDetails = { firstName, lastName, city, email, address, phone }
+        // if (!isEmpty(userDetails)) {
+        //     Error()
+        // } else {
+        //     navigate("/createPassword", { state: { userDetails } })
+        // }
         navigate("/createPassword", { state: { userDetails } })
     }
-
 
     return (
         <div className={styles.CreateAccountModal}>
