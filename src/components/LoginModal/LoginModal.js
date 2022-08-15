@@ -119,7 +119,7 @@ const LoginModal = ({ close }) => {
                 </div>
             </div>
             {showError &&
-                message.error(error.description, 3, clearError)
+                message.error(error.description, 2, clearError)
             }
         </div>
 
