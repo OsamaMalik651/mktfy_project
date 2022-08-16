@@ -1,26 +1,24 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import closeIcon from "../../assets/icon_close.svg"
 import backIcon from "../../assets/icon_back.svg"
 import "./ResetPWModal.css"
-import { Input } from '../Input/Input'
 import PasswordCheckBox from '../PasswordCheckBox/PasswordCheckBox'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
-
-import { useState } from 'react'
 import { Link, useLocation, useNavigate, useOutletContext } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth-context'
 import PasswordInput from '../PasswordInput/PasswordInput'
 import { checkLength, checkNumberPresent, checkPasswordInput, checkUpperCase } from '../../utils'
+import { message } from 'antd';
 
 const ResetPWModal = ({ create }) => {
 
     const location = useLocation()
     let navigate = useNavigate();
-    const { signUp, signUpCompleted } = useContext(AuthContext)
+    const { signUp, signUpCompleted, error, setError, showError, setShowError } = useContext(AuthContext)
 
     //State Variables
     const [checkedTOS, setCheckedTOS] = useState(false)
@@ -44,6 +42,7 @@ const ResetPWModal = ({ create }) => {
     const isPasswordMatching = password === confirmPassword
     const enableSubmit = passwordCheck && isPasswordMatching && checkedTOS;
 
+    console.log(location.state.userDetails)
     const handleSubmit = () => {
         const userDetails = { ...location.state.userDetails, password }
         signUp(userDetails)
@@ -51,6 +50,10 @@ const ResetPWModal = ({ create }) => {
     const handleClose = () => {
         setShowModal(false);
         navigate("/")
+    }
+    const clearError = () => {
+        setError({ title: "", description: "" })
+        setShowError(false)
     }
     return (
         <Modal>
@@ -103,6 +106,9 @@ const ResetPWModal = ({ create }) => {
                         <Button onClick={handleSubmit} color="#6318AE" disabled={!enableSubmit}>{create ? "Create Account" : "Submit"}</Button>
                     </div>
                 </div>
+                {showError &&
+                    message.error(error.description, 3, clearError)
+                }
             </div>
         </Modal>)
 

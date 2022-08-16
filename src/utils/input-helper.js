@@ -38,3 +38,9 @@ export const denormalizePhoneNumber = (phoneNumber) => {
     }
     return null;
 }
+
+//Check if any field in userDetails is empty or not
+export const isEmpty = (userDetails) => {
+    const isFieldEmpty = Object.values(userDetails).every(field => field);
+    return isFieldEmpty;
+}

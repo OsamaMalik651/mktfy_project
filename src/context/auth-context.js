@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import axios from "../utils/axios-helper"
 import { message } from 'antd';
+import { Alert } from 'antd';
 import { checkAccessToken } from "../utils/storage-helper";
 const { REACT_APP_DOMAIN, REACT_APP_CLIENTID, REACT_APP_AUDIENCE } = process.env
 
@@ -79,7 +80,7 @@ export const AuthContextProvider = ({ children }) => {
         sessionStorage.removeItem("user")
         webAuth.logout({ returnTo: "http://localhost:3000/" })
     }
-
+    console.log(error, showError)
     const signUp = (userDetails) => {
         const { firstName, lastName, city, email, address, phone, password } = userDetails
         webAuth.signup(
@@ -152,7 +153,6 @@ export const AuthContextProvider = ({ children }) => {
     //This function runs when user is logged in for the first time
     const getUserInfo = async (id) => {
         try {
-            setLoading(true)
             const user = await axios.get(`/User/${id}`);
             setUser(user);
         } catch (error) {

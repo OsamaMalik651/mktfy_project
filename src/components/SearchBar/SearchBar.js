@@ -5,9 +5,7 @@ import searchIcon from "../../assets/search.svg"
 import CityDropDown from '../CityDropDown/CityDropDown';
 
 const SearchBar = () => {
-
     const [city, setCity] = useState("");
-
     return (
         <div className={styles.SearchBar}>
             {/* Button All */}

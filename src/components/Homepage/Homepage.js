@@ -18,6 +18,7 @@ const Homepage = () => {
                 <CategoryCard />
             </div>
             <div className={styles.HomePage_Banner}>
+
                 <div className={styles.HomePage_BannerContent}>
                     <h1> Bring your market with you</h1>
                     <p>Buy and sell on our MKTFY app while you’re on the go!</p>
@@ -32,7 +33,6 @@ const Homepage = () => {
                 </div>
 
             </div>
-
         </div>
     )
 }

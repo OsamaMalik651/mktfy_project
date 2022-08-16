@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 
 const Layout = (props) => {
     return (
-        <div>
+        <div style={{ width: "100vw" }}>
             <Navbar />
             {props.children}
             <Footer />

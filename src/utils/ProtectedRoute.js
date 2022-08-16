@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react';
-import { Navigate, Route, useLocation } from 'react-router-dom';
-// import { Redirect, Route } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
-import { checkAccessToken } from './storage-helper';
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
-import jwtDecode from 'jwt-decode';
-
 
 const ProtectedRoute = ({ children, ...rest }) => {
     const { loading, authenticated, logout } = useContext(AuthContext);

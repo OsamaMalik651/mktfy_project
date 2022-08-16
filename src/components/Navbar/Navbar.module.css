@@ -24,12 +24,15 @@
   display: flex;
   align-items: center;
   margin-right: 1.2rem;
+  width: fit-content;
+  box-sizing: border-box;
 }
 .NavbarTopLogo > img {
-  width: 7.375rem;
+  max-width: 7.375rem;
 }
 .NavbarTopSearch {
-  width: 63.25rem;
+  max-width: 63.25rem;
+  flex-grow: 1;
 }
 .NavbarTopUser {
   width: 10.188rem;
@@ -76,4 +79,37 @@
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
+}
+.NavbarBottom > a:hover {
+  color: #ffba00;
+}
+
+@media only screen and (max-width: 1200px) {
+  .Navbar {
+    width: 100%;
+  }
+  .NavbarTop {
+    padding-left: 1.5rem;
+  }
+  .NavbarTopSearch {
+    max-width: fit-content;
+    flex-grow: 1;
+  }
+  .NavbarTopUser {
+    margin-left: 0.125rem;
+  }
+  .NavbarTopNotification {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    margin-left: 0.125rem;
+  }
+  .NavbarTopCreateListing {
+    margin-left: 0.5rem;
+  }
+  .NavbarBottom {
+    width: fit-content;
+    margin-left: 0rem;
+    align-self: center;
+  }
 }

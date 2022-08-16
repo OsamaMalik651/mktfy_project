@@ -35,6 +35,7 @@
 .Links > h1 {
   font-size: 1.25rem;
   font-weight: 600;
+  color: white;
 }
 .Links {
   display: flex;
@@ -54,6 +55,7 @@
 .Contact > h1 {
   font-size: 1.25rem;
   font-weight: 600;
+  color: white;
 }
 .Contact_Details {
   display: flex;
@@ -63,6 +65,12 @@
 .Contact_Details > a {
   text-decoration: none;
   color: #ffba00;
+}
+.Links > a:hover {
+  color: white;
+}
+.Contact_Details > a:hover {
+  color: white;
 }
 .Content_Left {
   width: 17rem;
@@ -87,4 +95,20 @@
   font-weight: 600;
   letter-spacing: 0.1rem;
   border-top: 1px solid #707070;
+}
+@media only screen and (max-width: 1200px) {
+  .Footer {
+    width: 100%;
+  }
+  .Footer_ContentTop {
+    gap: 0.5rem;
+    margin-left: 4.875rem;
+  }
+  .Contact_Details > p {
+    max-width: 10rem;
+    width: fit-content;
+  }
+  .Footer_ContentBottom {
+    width: 100%;
+  }
 }

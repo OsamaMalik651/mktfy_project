@@ -1,12 +1,7 @@
-import React, { useContext } from 'react'
-import { Spin } from 'antd';
+import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Homepage from '../../components/Homepage/Homepage'
 import Layout from '../../components/Layout/Layout'
 import styles from "./Dashboard.module.css"
-import { AuthContext } from '../../context/auth-context'
-import 'antd/dist/antd.css';
-
 const Dashboard = () => {
 
     return (

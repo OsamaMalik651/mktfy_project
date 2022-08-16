@@ -7,7 +7,7 @@
   border-radius: 8px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -29,23 +29,24 @@
   font-size: 0.95rem;
 }
 .Input {
-  width: 46.875rem;
+  max-width: 46.875rem;
   height: 1.3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
 }
 .Input > input {
   font-size: 0.9rem;
   border-radius: 0px;
   height: inherit;
+  min-width: 10rem;
 }
 .Input > button {
   background-color: white;
   height: inherit;
   border: none;
-  border-right: 1px solid #d3d3d3;
   box-sizing: border-box;
   padding: 0rem 2.775rem;
   display: flex;
@@ -60,4 +61,5 @@
 }
 .Dropdown {
   width: 9rem;
+  border-left: 1px solid #d3d3d3;
 }

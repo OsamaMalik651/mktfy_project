@@ -3,7 +3,6 @@ import Card from '../Card/Card'
 import styles from "./Slider.module.css"
 
 const Slider = () => {
-
     //Creating array of cards to display as placeholder. Will be removed upon integration wtih backend 
     const array = Array.from(Array(10).keys()).map((item, index) => {
         return <Card key={index} />;
