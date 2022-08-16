@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pagination } from "antd";
 import "./Pagination.css"
-// import styles from "./Pagination.module.css"
+import styles from "./Pagination.module.css"
 
 const PaginationComponent = () => {
     return (
@@ -9,7 +9,7 @@ const PaginationComponent = () => {
             <Pagination
                 showTotal={false}
                 showSizeChanger={false}
-                className="pagination"
+                className="styles.pagination"
                 total={40}
                 defaultPageSize={10}
             />

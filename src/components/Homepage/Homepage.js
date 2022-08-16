@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CategoryCard from '../CategoryCard/CategoryCard'
 import GooglePlay from "../../assets/GooglePlay.png"
 import AppStore from "../../assets/AppStore.png"
 import Slider from '../Slider/Slider'
 import styles from "./Homepage.module.css"
+import { getDashboardListings } from '../../services'
+
 const Homepage = () => {
+    const [dashboardCategories, setDashboardCategories] = React.useState([])
+    useEffect(() => {
+        try {
+            getDashboardListings().then(res => setDashboardCategories(res))
+        }
+        catch (err) { console.log(err) }
+    }, [])
+
     return (
         <div className={styles.Homepage}>
             <Slider />
             <div className={styles.Categories}>
-                <CategoryCard />
-                <CategoryCard />
+                <CategoryCard category={dashboardCategories[0]} />
+                <CategoryCard category={dashboardCategories[1]} />
             </div>
             <Slider />
             <div className={styles.Categories}>
-                <CategoryCard />
-                <CategoryCard />
+                <CategoryCard category={dashboardCategories[2]} />
+                <CategoryCard category={dashboardCategories[3]} />
             </div>
             <div className={styles.HomePage_Banner}>
 

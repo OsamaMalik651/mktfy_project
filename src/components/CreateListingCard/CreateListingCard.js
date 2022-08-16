@@ -10,7 +10,7 @@ import Button from '../Button/Button'
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import UploadImageModal from '../UploadImageModal/UploadImageModal';
 import { ReactComponent as CloseIcon } from '../../assets/icon_close_red.svg';
-import { createListing } from '../../services/CreateListing';
+// import { createListing } from '../../services/CreateListing';
 
 const categories = ["Select category", "Cars & Vehicle", "Funiture", "Electronics", "Real Estate"]
 const conditions = ["Select condition", "Used", "New"]
@@ -49,7 +49,7 @@ const CreateListingCard = () => {
             condition,
             status
         }
-        createListing(body)
+        // createListing(body)
     }
 
     return (
