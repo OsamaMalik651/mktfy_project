@@ -12,10 +12,10 @@ const uploadImages = async (images) => {
 
 //Create listing
 const createListing = async (listing) => {
-    console.log(listing)
     try {
         const response = await axios.post("/Listing", listing);
-        return response.data
+        console.log(response)
+        return response
     } catch (error) {
         console.log(error)
     }

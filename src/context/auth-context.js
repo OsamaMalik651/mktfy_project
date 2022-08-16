@@ -80,7 +80,7 @@ export const AuthContextProvider = ({ children }) => {
         sessionStorage.removeItem("user")
         webAuth.logout({ returnTo: "http://localhost:3000/" })
     }
-    console.log(user)
+
 
     const signUp = (userDetails) => {
         const { firstName, lastName, city, email, address, phone, password } = userDetails

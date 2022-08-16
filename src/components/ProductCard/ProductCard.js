@@ -22,7 +22,6 @@ const ProductCard = ({ product }) => {
         } else {
             setProductToBuy(product)
         }
-
     }, [product])
 
     //When the product is loaded, get seller details from backend.

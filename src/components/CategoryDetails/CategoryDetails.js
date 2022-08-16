@@ -14,7 +14,7 @@ const CategoryDetails = () => {
 
     useEffect(() => {
         getListings(category).then(res => setListings(res))
-    }, [])
+    }, [category])
 
     return (
         <div className={styles.CategoryDetails}>
@@ -23,7 +23,7 @@ const CategoryDetails = () => {
             </div>
             {/* Heading */}
             <div className={styles.Heading_Section}>
-                <h1> Popular Cars & Vehicles in Calgary</h1>
+                <h1> Popular {category} in Calgary</h1>
                 <p>Showing 10 of {listings.length} results</p>
             </div>
             {/* Content */}

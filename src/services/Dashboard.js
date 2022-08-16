@@ -1,7 +1,7 @@
 import axios from "../utils/axios-helper";
 import { message } from 'antd';
 
-const categories = ["Electronics", "Furniture", "Real Estate", "Cars & Vehicles"];
+const categories = ["Cars & Vehicles", "Furniture", "Electronics", "Real Estate"];
 //Get 3 listngs from each category and display them in the dashboard
 const getDashboardListings = async () => {
     //This function needs to be modified to return images only for the listings that are returned.
@@ -38,4 +38,4 @@ const requestListing = async (id) => {
     }
 }
 
-export { getDashboardListings, getListings, requestListing };
+export { getDashboardListings, getListings, requestListing, categories };

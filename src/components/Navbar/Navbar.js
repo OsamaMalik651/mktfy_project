@@ -7,7 +7,8 @@ import SearchBar from '../SearchBar/SearchBar'
 import UserDropDown from '../UserDropDown/UserDropDown'
 import NotificationDropDown from '../NotificationDropDown/NotificationDropDown'
 import Button from '../Button/Button'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { categories } from '../../services'
 const Navbar = () => {
     let navigate = useNavigate()
     return (
@@ -40,10 +41,9 @@ const Navbar = () => {
                     Categories
                 </Link>
                 <Link to="#">Deals</Link>
-                <Link to="#">Cars & Vehicles</Link>
-                <Link to="#">Furniture</Link>
-                <Link to="#">Electronics</Link>
-                <Link to="#">Real Estate</Link>
+                {categories.map(category => {
+                    return <NavLink to={`/home/${category}`} >{category}</NavLink>
+                })}
             </div>
         </div>
     )
