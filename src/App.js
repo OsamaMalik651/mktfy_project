@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import './App.css';
 import Login from './Pages/LoginPage';
-import SuccessAnimation from "./components/SuccessAnimation/SuccessAnimation";
 import TOS from "./components/TosAndPrivacyPolicy/TOS";
 import Dashboard from './Pages/Dashboard';
 import Homepage from './components/Homepage/Homepage';
@@ -50,14 +49,15 @@ function App() {
               </ProtectedRoute>
             }>
               <Route index element={<Homepage />} />
-              <Route path="category" element={<Category />}>
+              <Route path=":category" exact element={<Category />}>
                 <Route index element={<CategoryDetails />} />
                 <Route path="product" element={<Product />}>
-                  <Route index element={<ProductDetails />} />
+                  <Route path=":productID" element={<ProductDetails />} />
                   <Route path="checkout" element={<PickUpInformation checkout={false} />} />
                   <Route path="pickup-information" element={<PickUpInformation checkout={true} />} />
                 </Route>
               </Route>
+
               <Route path="create-listing" element={<CreateListing />} >
                 <Route index element={<CreateListingCard />} />
                 <Route path="upload-images" element={<UploadImageModal />} />
@@ -78,7 +78,7 @@ function App() {
             </Route>
             <Route path="/terms-and-services" element={<TOS content="TOS" />} />
             <Route path="/privacy-policy" element={<TOS content="PP" />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
         </Router>
       </WithAxios>

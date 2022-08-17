@@ -131,6 +131,8 @@
 .Profile > h1 {
   font-size: 1rem;
   font-weight: bold;
+  color: white;
+  margin-top: 0.313rem;
 }
 .ProfileDetails > * {
   margin: 0;

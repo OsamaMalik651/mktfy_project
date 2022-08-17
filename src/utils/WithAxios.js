@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/auth-context";
 import axios from "./axios-helper";
+import { message } from 'antd';
 
 export default function WithAxios({ children }) {
     const { logout } = useContext(AuthContext);
@@ -19,14 +20,15 @@ export default function WithAxios({ children }) {
                     !originalConfig.url.includes("mktfylex.us.auth0.com") &&
                     error.response
                 ) {
-                    console.log(error.response);
+                    // console.log(error.response);
+                    message.error(`${error.response.status}, ${error.response.statusText}`)
                     // Access token expired
                     if (error.response.status === 401) {
                         console.log("401 error");
                         logout();
                     }
                     if (error.response.status === 400) {
-                        console.log(error)
+                        // console.log(error)
                     }
                     if (error.response.status === 404) {
                         console.log("404 error", error.response.statusText)

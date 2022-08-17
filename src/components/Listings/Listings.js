@@ -2,15 +2,17 @@ import React from 'react'
 import ListingCard from '../ListingCard/ListingCard'
 import styles from "./Listings.module.css"
 
-const Listings = () => {
+const Listings = ({ listings }) => {
+
     return (
         <div className={styles.Listings}>
-            <ListingCard />
-            <hr />
-            <ListingCard />
-            <hr />
-            <ListingCard />
-            <hr />
+            {listings.map((listing, index) => {
+                return (
+                    <div key={index}>
+                        <ListingCard listing={listing} />
+                        <hr />
+                    </div>);
+            })}
         </div>
     )
 }

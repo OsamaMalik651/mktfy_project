@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 1rem;
+  cursor: pointer;
 }
 .ListingCard_Right * {
   margin: 0;
@@ -26,7 +27,7 @@
   gap: 1rem;
 }
 .ListingCard_Right > .title {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   color: black;
   padding: 0.3rem 0rem;
   font-weight: normal;
@@ -35,6 +36,7 @@
   width: 100%;
   color: #6318af;
   font-weight: bold;
+  font-size: 1.125rem;
 }
 
 .ListingCard_Right > .details > .condition {

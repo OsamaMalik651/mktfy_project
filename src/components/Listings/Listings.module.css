@@ -1,6 +1,6 @@
 .Listings {
   width: 76.75rem;
-  height: 2270px;
+  height: fit-content;
   background-color: white;
   border-radius: 5px;
   box-sizing: border-box;

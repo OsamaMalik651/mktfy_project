@@ -52,6 +52,7 @@
   text-align: center;
   border-radius: 5px;
   padding: 1px 5px;
+  text-transform: capitalize;
 }
 .ProductCard_Right_Details .details {
   color: #6318af;
@@ -68,6 +69,7 @@
   align-items: center;
   gap: 0.5rem;
 }
+
 .ProductCard_Right_User_ProfilePhoto {
   background-color: #6318af;
   height: 3.125rem;
@@ -81,6 +83,8 @@
 .ProductCard_Right_User_ProfilePhoto > h1 {
   font-size: 1rem;
   font-weight: bold;
+  color: white;
+  margin-top: 0.313rem;
 }
 .ProductCard_Right_User_Details > * {
   margin: 0;
