@@ -17,7 +17,7 @@ const ProductDetails = () => {
 
     return (
         <div className={styles.ProductDetails}>
-            <BreadCrumb />
+            <BreadCrumb product={product} />
             <ProductCard product={product} />
         </div>
     )
