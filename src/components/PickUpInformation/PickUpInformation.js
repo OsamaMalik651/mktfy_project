@@ -11,6 +11,7 @@ const PickUpInformation = ({ checkout }) => {
     let location = useLocation();
     const product = location.state
     const [seller, setSeller] = React.useState({})
+    const [loading, setLoading] = React.useState(false)
 
     const buyProduct = () => {
         requestListing(product.id).then(res => {
@@ -27,10 +28,12 @@ const PickUpInformation = ({ checkout }) => {
         }
     }, [])
 
-    //Check if 
+    //Check if the user is on the Pickup Information page or not. If yes, then get the seller details.
     useEffect(() => {
-        if (checkout) {
-            getSeller(product.userId).then(res => setSeller(res))
+        if (!checkout) {
+            getSeller(product.userId).then(res => { setSeller(res); setLoading(true) })
+        } else {
+            setLoading(false)
         }
     }, [checkout]);
 
@@ -40,9 +43,8 @@ const PickUpInformation = ({ checkout }) => {
                 <BreadCrumb />
             </div>
             <div className={styles.PickUpInformation}>
-
                 <div className={styles.PickUpInformation_Top}>
-                    <h1>Pickup Information</h1>
+                    <h1>{checkout ? "Checkout" : "Pickup Information"}</h1>
                     <div className={styles.MyListingCard}>
                         <img src={PlaceholderImage} alt="" className={styles.Image} />
                         <div className={`${styles.Details} ${styles.Purchases}`}>
@@ -58,32 +60,35 @@ const PickUpInformation = ({ checkout }) => {
                     </div >
 
                 </div>
-                {checkout && seller ? <div className={styles.PickUpInformation_Bottom}>
-                    <p>Pick up</p>
-                    <div className={styles.SellerInfo}>
-                        <div className={styles.SellerInfo_Left}>
-                            <div className={styles.Profile}>
-                                <h1>{seller?.firstName.charAt(0)}</h1>
+                {loading ?
+                    <div className={styles.PickUpInformation_Bottom}>
+                        <p>Pick up</p>
+                        <div className={styles.SellerInfo}>
+                            <div className={styles.SellerInfo_Left}>
+                                <div className={styles.Profile}>
+                                    <h1>{seller?.firstName.charAt(0)}</h1>
+                                </div>
+                                <div className={styles.ProfileDetails}>
+                                    <h1>{seller?.firstName + " " + seller?.lastName} </h1>
+                                    <p>{normalizePhoneNumber(seller?.phone)}</p>
+                                </div>
                             </div>
-                            <div className={styles.ProfileDetails}>
-                                <h1>{seller?.firstName + " " + seller?.lastName} </h1>
-                                <p>{normalizePhoneNumber(seller?.phone)}</p>
-                            </div>
-                        </div>
 
-                        <div className={styles.SellerInfo_Right}></div>
+                            <div className={styles.SellerInfo_Right}></div>
+                        </div>
+                        <div className={styles.Address}>
+                            <p>Please pick up your purchase at {seller.address || "user address"}, {seller.city || "City"}, Alberta</p>
+                        </div>
+                    </div> :
+                    <div className={styles.PickUpConfirm}>
+                        <Button
+                            color="#6318AF"
+                            // onClick={() => { navigate("/home/category/product/pickup-information") }}
+                            onClick={() => { buyProduct() }}
+                        >Confirm
+                        </Button>
                     </div>
-                    <div className={styles.Address}>
-                        <p>Please pick up your purchase at {seller.address || "user address"}, {seller.city || "City"}, Alberta</p>
-                    </div>
-                </div> : <div className={styles.PickUpConfirm}>
-                    <Button
-                        color="#6318AF"
-                        // onClick={() => { navigate("/home/category/product/pickup-information") }}
-                        onClick={() => { buyProduct() }}
-                    >Confirm
-                    </Button>
-                </div>}
+                }
             </div>
         </div>
 

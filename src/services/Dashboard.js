@@ -1,5 +1,4 @@
 import axios from "../utils/axios-helper";
-import { message } from 'antd';
 
 const categories = ["Cars & Vehicles", "Furniture", "Electronics", "Real Estate"];
 //Get 3 listngs from each category and display them in the dashboard
@@ -30,7 +29,6 @@ const getListings = async (category) => {
 const requestListing = async (id) => {
     try {
         const listing = await axios.put(`/listing/request`, { "id": id });
-        console.log(listing)
         return listing;
     }
     catch (error) {
