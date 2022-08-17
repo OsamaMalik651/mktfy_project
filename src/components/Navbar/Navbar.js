@@ -41,8 +41,8 @@ const Navbar = () => {
                     Categories
                 </Link>
                 <Link to="#">Deals</Link>
-                {categories.map(category => {
-                    return <NavLink to={`/home/${category}`} >{category}</NavLink>
+                {categories.map((category) => {
+                    return <NavLink to={`/home/${category}`} key={category}>{category}</NavLink>
                 })}
             </div>
         </div>
