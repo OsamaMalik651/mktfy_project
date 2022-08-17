@@ -72,7 +72,7 @@ function App() {
               </Route>
               <Route path="my-purchases" element={<MyPurchase />}>
                 <Route index element={<MyPurchases />} />
-                <Route path='pickupInfo' element={<PickUpInformation />} />
+                <Route path='pickup-information' element={<PickUpInformation />} />
               </Route>
               <Route path="faq" element={<FAQ />} />
             </Route>
