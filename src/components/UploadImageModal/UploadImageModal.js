@@ -8,7 +8,7 @@ import Button from '../Button/Button'
 import { uploadImages } from '../../services/CreateListing'
 import { FileUploader } from 'react-drag-drop-files'
 
-const UploadImageModal = ({ close, index, previewImages, maxNumberOfFilesSelected, setMaxNumberOfFilesSelected, setPreviewImages }) => {
+const UploadImageModal = ({ close, index, setImages, previewImages, maxNumberOfFilesSelected, setMaxNumberOfFilesSelected, setPreviewImages }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [previewImageUrl, setPreviewImageUrl] = useState("");
     const [isFilePicked, setIsFilePicked] = useState(false);
@@ -29,11 +29,9 @@ const UploadImageModal = ({ close, index, previewImages, maxNumberOfFilesSelecte
     };
 
     const handleSubmission = async () => {
-        const images = new FormData();
-        images.append("image", selectedFile);
-
-        // const response = await uploadImages(images)
-        // console.log(response)
+        const image = new FormData();
+        image.append("image", selectedFile);
+        // setImages((previousImages) => [...previousImages, image])
 
         /* Add modal close logic here */
         const newArray = [...previewImages].map((obj, newIndex) => {
@@ -42,7 +40,8 @@ const UploadImageModal = ({ close, index, previewImages, maxNumberOfFilesSelecte
                     ...obj,
                     imageID: "",
                     showPreview: true,
-                    imageURL: previewImageUrl
+                    imageURL: previewImageUrl,
+                    selectedImage: image
                 };
             } else return obj;
         });
